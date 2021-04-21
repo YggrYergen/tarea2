@@ -1,0 +1,28 @@
+Menu:
+    Libro:
+        Agregar libro
+        Editar libro:
+            Cambiar Sede
+            Cambiar Seccion
+            Cambiar Piso
+        Buscar libro
+        Quitar libro
+
+    Sede:
+        Agregar Sede
+        Quitar Sede
+
+    Seccion:
+        Agregar Seccion
+        Quitar Seccion
+
+    Piso:
+        Agregar Piso
+        Quitar Piso
+
+    
+
+    
+    
+
+
