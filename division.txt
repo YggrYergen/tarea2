@@ -21,18 +21,18 @@ Menu:
                         
                         Libros:
                             Agregar libro
-                            Editar libro:
-                                Cambiar titulo
-                                Cambiar autor
-                                Cambiar anio
-                                Cambiar estante_numero
-                                Cambiar estante_seccion
-                                Cambiar Piso
-                                Cambiar Edificio
-                                Cambiar Sede
+                            Editar libro:                   Cata
+                                Cambiar titulo              Cata
+                                Cambiar autor               Cata 
+                                Cambiar anio                Cata
+                                Cambiar estante_numero      Cata
+                                Cambiar estante_seccion     Cata
+                                Cambiar Piso                Cata
+                                Cambiar Edificio            Cata
+                                Cambiar Sede                Cata
                             Buscar libro
                             Quitar libro
-                            
+
 
     
 
