@@ -1,20 +1,19 @@
 public class App2 {
     static void dispMenu() {
-
-        System.out.println(
                 "----------------------------------------------------------------------------------------------------------");
-        System.out.println("Enter 0 to Exit Application.");
-        System.out.println("Enter 1 to Add new Book.");
-        System.out.println("Enter 2 to Upgrade Quantity of a Book.");
-        System.out.println("Enter 3 to Search a Book.");
-        System.out.println("Enter 4 to Show All Books.");
-        System.out.println("Enter 5 to Register Student.");
-        System.out.println("Enter 6 to Show All Registered Students.");
-        System.out.println("Enter 7 to Check Out Book. ");
-        System.out.println("Enter 8 to Check In Book");
-        System.out.println(
-                "----------------------------------------------------------------------------------------------------------");
+        int opcion_1;
 
+        System.out.println("Ingrese 1 para agregar libro.");
+        System.out.println("Ingrese 2 para editar libro.");
+        System.out.println("Ingrese 3 para buscar libro.");
+        System.out.println("Ingrese 4 para quitar libro.");
+        System.out.println("Ingrese 5 para agregar o quitar seccion.");
+        System.out.println("Ingrese 6 para agregar o quitar estante.");
+        System.out.println("Ingrese 7 para agregar o quitar piso.");
+        System.out.println("Ingrese 8 para agregar o quitar edificio.");
+        System.out.println("Ingrese 9 para agregar o quitar sede.");
+        System.out.println("Ingrese 0 para salir.");
+        "----------------------------------------------------------------------------------------------------------");
     }
 
     public static void main(String[] args) {
