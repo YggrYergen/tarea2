@@ -1,3 +1,4 @@
+
 public class App2 {
     static void dispMenu() {
 
@@ -18,8 +19,10 @@ public class App2 {
     }
 
     public static void main(String[] args) {
-        dispMenu();
+        // dispMenu();
+        Books ob1 = new Books();
 
+        // ob1.printLibro();
     }
 
 }
