@@ -1,26 +1,28 @@
-Menu:
-    Sedes:
-        Agregar Sede
-        Quitar Sede
+Leer csv                                                    Rorro
 
-        Edificios:
-            Agregar Edificio
-            Quitar Edificio
+Menu:                                                       Tomas
+    Sedes:                                                  Tomas
+        Agregar Sede                                        Tomas    
+        Quitar Sede                                         Tomas
 
-            Pisos:
-                Agregar Piso
-                Quitar Piso
+        Edificios:                                          Tomas
+            Agregar Edificio                                Tomas
+            Quitar Edificio                                 Tomas
 
-                Estantes:
-                    Agregar Estante
-                    Quitar Estante
+            Pisos:                                          Tomas
+                Agregar Piso                                Tomas
+                Quitar Piso                                 Tomas
 
-                    Seccion:
-                        Agregar Seccion
-                        Quitar Seccion
+                Estantes:                                   Tomas
+                    Agregar Estante                         Tomas
+                    Quitar Estante                          Tomas
+
+                    Seccion:                                Tomas
+                        Agregar Seccion                     Tomas
+                        Quitar Seccion                      Tomas
                         
-                        Libros:
-                            Agregar libro
+                        Libros:                             Grupo: Cata, Esteban, Tomas
+                            Agregar libro                   Esteban
                             Editar libro:                   Cata
                                 Cambiar titulo              Cata
                                 Cambiar autor               Cata 
@@ -30,9 +32,10 @@ Menu:
                                 Cambiar Piso                Cata
                                 Cambiar Edificio            Cata
                                 Cambiar Sede                Cata
-                            Buscar libro
-                            Quitar libro
+                            Buscar libro                    Tomas
+                            Quitar libro                    Esteban
 
+Guardar                                                     Esteban
 
     
 
