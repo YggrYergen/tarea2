@@ -1,24 +1,38 @@
 Menu:
-    Libro:
-        Agregar libro
-        Editar libro:
-            Cambiar Sede
-            Cambiar Seccion
-            Cambiar Piso
-        Buscar libro
-        Quitar libro
-
-    Sede:
+    Sedes:
         Agregar Sede
         Quitar Sede
 
-    Seccion:
-        Agregar Seccion
-        Quitar Seccion
+        Edificios:
+            Agregar Edificio
+            Quitar Edificio
 
-    Piso:
-        Agregar Piso
-        Quitar Piso
+            Pisos:
+                Agregar Piso
+                Quitar Piso
+
+                Estantes:
+                    Agregar Estante
+                    Quitar Estante
+
+                    Seccion:
+                        Agregar Seccion
+                        Quitar Seccion
+                        
+                        Libros:
+                            Agregar libro
+                            Editar libro:                   Cata
+                                Cambiar titulo              Cata
+                                Cambiar autor               Cata 
+                                Cambiar anio                Cata
+                                Cambiar estante_numero      Cata
+                                Cambiar estante_seccion     Cata
+                                Cambiar Piso                Cata
+                                Cambiar Edificio            Cata
+                                Cambiar Sede                Cata
+                            Buscar libro
+                            Quitar libro
+
 
     
 
