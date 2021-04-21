@@ -1,5 +1,4 @@
-package tarea2;
-public class Main {
+public class App2 {
     public static void main(String[] args) {
 
     }
