@@ -1,22 +1,26 @@
-public class App2 {
-    static void dispMenu() {
-        int opcion_1;
 
-        System.out.println("Ingrese 1 para agregar libro.");
-        System.out.println("Ingrese 2 para editar libro.");
-        System.out.println("Ingrese 3 para buscar libro.");
-        System.out.println("Ingrese 4 para quitar libro.");
-        System.out.println("Ingrese 5 para agregar o quitar seccion.");
-        System.out.println("Ingrese 6 para agregar o quitar estante.");
-        System.out.println("Ingrese 7 para agregar o quitar piso.");
-        System.out.println("Ingrese 8 para agregar o quitar edificio.");
-        System.out.println("Ingrese 9 para agregar o quitar sede.");
-        System.out.println("Ingrese 0 para salir.");
-    }
+public class App2 {
 
     public static void main(String[] args) {
-        // dispMenu();
-        Books ob1 = new Books();
+        Methods.readCsv(args[0]);
+
+        // Methods.dispMenu();
+
+        Book b1 = new Book("Introduction to Algorithms",
+                "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein", 2009);
+        Book b2 = new Book("Programming Language Pragmatics", "Michael L. Scott, Morgan Kaufman", 2015);
+        Sedes s1 = new Sedes(1, "A", "Santiago");
+        Sedes s2 = new Sedes(1, "B", "Vina del Mar");
+        Shelve e1 = new Shelve(4, "Estructura de Datos y Algoritmos");
+        Shelve e2 = new Shelve(1, "Estructura de Datos y Algoritmos");
+
+        e1.addBook(b1);
+        e2.addBook(b2);
+        s1.addSede(e1);
+        s2.addSede(e2);
+
+        System.out.println(s1);
+        System.out.println(s2);
 
         // ob1.printLibro();
     }

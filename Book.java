@@ -1,23 +1,18 @@
 public class Book {
     protected String titulo;
     protected String autor;
-    protected int año;
-    protected int eNumero;
-    protected String eSeccion;
-    protected String sede;
-    protected String edificio;
-    protected int piso;
+    protected int anio;
 
-    public Book(String titulo, String autor, int año, int eNumero, String eSeccion, int piso, String sede,
-            String edificio) {
+    public Book(String titulo, String autor, int anio) {
         this.titulo = titulo;
         this.autor = autor;
-        this.año = año;
-        this.eNumero = eNumero;
-        this.eSeccion = eSeccion;
-        this.sede = sede;
-        this.edificio = edificio;
-        this.piso = piso;
+        this.anio = anio;
+
+    }
+
+    public String toString() {
+        return "Titulo: " + this.titulo + "\nautor: " + this.autor + "\naño:" + this.anio;
+
     }
 
     public String getTitulo() {
@@ -36,55 +31,12 @@ public class Book {
         this.autor = autor;
     }
 
-    public int getAño() {
-        return this.año;
+    public int getAnio() {
+        return this.anio;
     }
 
-    public void setAño(int año) {
-        this.año = año;
+    public void setAnio(int anio) {
+        this.anio = anio;
     }
 
-    public int getEstanteNumero() {
-        return this.eNumero;
-    }
-
-    public void setEstanteNumero(int eNumero) {
-        this.eNumero = eNumero;
-    }
-
-    public String getEstanteSeccion() {
-        return this.eSeccion;
-    }
-
-    public void setEstanteSeccion(String eSeccion) {
-        this.eSeccion = eSeccion;
-    }
-
-    public String getSede() {
-        return this.sede;
-    }
-
-    public void setSede(String sede) {
-        this.sede = sede;
-    }
-
-    public String getEdificio() {
-        return this.edificio;
-    }
-
-    public void setEdificio(String edificio) {
-        this.edificio = edificio;
-    }
-
-    public int getPiso() {
-        return this.piso;
-    }
-
-    public void setPiso(int piso) {
-        this.piso = piso;
-    }
-
-    public String toString() {
-        return "Titulo: " + this.titulo + "\nAutor: " + this.autor + "\naño: " + this.año + "\nSede: " + this.sede;
-    }
 }
