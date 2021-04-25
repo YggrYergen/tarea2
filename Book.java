@@ -11,7 +11,7 @@ public class Book {
     }
 
     public String toString() {
-        return "Titulo: " + this.titulo + "\nautor: " + this.autor + "\naño:" + this.anio;
+        return "Titulo: " + this.titulo + "\nautor: " + this.autor + "\naño: " + this.anio;
 
     }
 

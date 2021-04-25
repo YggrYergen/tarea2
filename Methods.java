@@ -1,9 +1,7 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+//import java.io.*;
 
 public class Methods {
+
     public static void dispMenu() {
         int opcion_1;
 
@@ -19,21 +17,28 @@ public class Methods {
         System.out.println("Ingrese 0 para salir.");
     }
 
-    public static void readCsv(String args) {
-        String path = "/home/rodrigo/projects/Git_Hub/tarea2/" + args;
-        String line = "";
-        try {
-            BufferedReader csvReader = new BufferedReader(new FileReader(path));
-            while ((line = csvReader.readLine()) != null) {
-                // System.out.println(line);
+    /*
+     * public static void readCsv(String args) { String path =
+     * System.getProperty("user.dir") + "/" + args; String line = ""; int bookNumber
+     * = 0, firstLine = 0; Sedes a = new Sedes(); try { BufferedReader csvReader =
+     * new BufferedReader(new FileReader(path)); while ((line =
+     * csvReader.readLine()) != null) { if (firstLine == 0) { firstLine++; continue;
+     * } bookNumber++; line = line.replace(",\"", "@\""); line = line.replace("\",",
+     * "\"@"); line = line.replace(", ", "?"); line = line.replace(",", "@"); line =
+     * line.replace("?", ", "); String[] row = line.split("@");
+     * 
+     * Book b = new Book(row[0], row[1], Integer.valueOf(row[2])); Shelve sh = new
+     * Shelve(Integer.valueOf(row[3]), row[4]); Sede se = new
+     * Sede(Integer.valueOf(row[5]), row[6], row[7]);
+     * 
+     * sh.addBook(b); se.addShelve(sh); a.addSede(se);
+     * 
+     * // System.out.println(se); }
+     * 
+     * csvReader.close(); System.out.print(a);
+     * 
+     * } catch (FileNotFoundException e) { e.printStackTrace(); } catch (IOException
+     * e) { e.printStackTrace(); } }
+     */
 
-            }
-            csvReader.close();
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }

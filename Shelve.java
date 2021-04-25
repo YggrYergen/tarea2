@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Shelve {
     private int eNumero;
     private String eSeccion;
-    private ArrayList<Book> books;
+    public ArrayList<Book> books;
 
     public Shelve(int eNumero, String eSeccion) {
         books = new ArrayList<>();

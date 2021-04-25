@@ -1,28 +1,62 @@
+import java.io.*;
 
 public class App2 {
 
     public static void main(String[] args) {
-        Methods.readCsv(args[0]);
+        Sedes a = new Sedes();
+        readCsv(args[0], a);
 
+        System.out.println(a);
+        // .sedes.get(0).shelves.get(0).books.get(0).getAutor()
+
+        // Methods.readCsv(args[0]);
         // Methods.dispMenu();
-
-        Book b1 = new Book("Introduction to Algorithms",
-                "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein", 2009);
-        Book b2 = new Book("Programming Language Pragmatics", "Michael L. Scott, Morgan Kaufman", 2015);
-        Sedes s1 = new Sedes(1, "A", "Santiago");
-        Sedes s2 = new Sedes(1, "B", "Vina del Mar");
-        Shelve e1 = new Shelve(4, "Estructura de Datos y Algoritmos");
-        Shelve e2 = new Shelve(1, "Estructura de Datos y Algoritmos");
-
-        e1.addBook(b1);
-        e2.addBook(b2);
-        s1.addSede(e1);
-        s2.addSede(e2);
-
-        System.out.println(s1);
-        System.out.println(s2);
-
+        // Methods.System.out.println(se);
         // ob1.printLibro();
+
+    }
+
+    public static void readCsv(String args, Sedes a) {
+        String path = System.getProperty("user.dir") + "/" + args;
+        String line = "";
+        int bookNumber = 0, firstLine = 0;
+
+        try {
+            BufferedReader csvReader = new BufferedReader(new FileReader(path));
+            while ((line = csvReader.readLine()) != null) {
+                if (firstLine == 0) {
+                    firstLine++;
+                    continue;
+                }
+                bookNumber++;
+                line = line.replace(",\"", "@\"");
+                line = line.replace("\",", "\"@");
+                line = line.replace(", ", "?");
+                line = line.replace(",", "@");
+                line = line.replace("?", ", ");
+                String[] row = line.split("@");
+
+                Book b = new Book(row[0], row[1], Integer.valueOf(row[2]));
+
+                Shelve sh = new Shelve(Integer.valueOf(row[3]), row[4]);
+                sh.addBook(b);
+
+                Sede se = new Sede(Integer.valueOf(row[5]), row[6], row[7]);
+                se.addShelve(sh);
+
+                a.addSede(se);
+
+                // System.out.println(se);
+            }
+
+            csvReader.close();
+            // System.out.print(a);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
