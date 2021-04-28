@@ -2,10 +2,14 @@
 public class App2 {
 
     public static void main(String[] args) {
-        Sedes a = new Sedes();
-        Methods.readCsv(args[0], a);
+        // Sedes sede = new Sedes();
+        Books biblioteca = new Books();
+        Methods.readCsv(args[0], biblioteca);
 
-        System.out.println(a);
+        biblioteca.buscarTitulo();
+
+        // System.out.println(biblioteca.books.get(1).getAutor());
+
         // .sedes.get(0).shelves.get(0).books.get(0).getAutor()
 
         // Methods.readCsv(args[0]);

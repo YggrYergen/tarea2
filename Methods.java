@@ -17,7 +17,7 @@ public class Methods {
         System.out.println("Ingrese 0 para salir.");
     }
 
-    public static void readCsv(String args, Sedes a) {
+    public static void readCsv(String args, Books biblioteca) {
         String path = System.getProperty("user.dir") + "/" + args;
         String line = "";
         int bookNumber = 0, firstLine = 0;
@@ -37,15 +37,18 @@ public class Methods {
                 line = line.replace("?", ", ");
                 String[] row = line.split("@");
 
-                Book b = new Book(row[0], row[1], Integer.valueOf(row[2]));
+                Book b1 = new Book(row[0], row[1], Integer.valueOf(row[2]), Integer.valueOf(row[3]), row[4],
+                        Integer.valueOf(row[5]), row[6], row[7]);
 
-                Shelve sh = new Shelve(Integer.valueOf(row[3]), row[4]);
-                sh.addBook(b);
+                biblioteca.addBook(b1);
 
-                Sede se = new Sede(Integer.valueOf(row[5]), row[6], row[7]);
-                se.addShelve(sh);
+                // Books b2 = new Books();
 
-                a.addSede(se);
+                // b2.addBook(b1);
+
+                // Shelve sh = new Shelve(Integer.valueOf(row[3]), row[4]);
+
+                // Sede se = new Sede(Integer.valueOf(row[5]), row[6], row[7]);
 
                 // System.out.println(se);
             }

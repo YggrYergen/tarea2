@@ -1,25 +1,16 @@
-import java.util.ArrayList;
-
 public class Shelve {
     private int eNumero;
     private String eSeccion;
-    public ArrayList<Book> books;
 
     public Shelve(int eNumero, String eSeccion) {
-        books = new ArrayList<>();
+
         this.eNumero = eNumero;
         this.eSeccion = eSeccion;
     }
 
-    public void addBook(Book book) {
-        this.books.add(book);
-    }
-
     public String toString() {
         String string = "";
-        for (Book book : books) {
-            string += book.toString() + "\nEstante: " + this.eNumero + "\nSeccion: " + this.eSeccion;
-        }
+        string += "Estante: " + this.eNumero + "\nSeccion: " + this.eSeccion;
         return string;
     }
 
@@ -41,14 +32,6 @@ public class Shelve {
 
     public void setESeccion(String eSeccion) {
         this.eSeccion = eSeccion;
-    }
-
-    public ArrayList<Book> getBooks() {
-        return this.books;
-    }
-
-    public void setBooks(ArrayList<Book> books) {
-        this.books = books;
     }
 
 }
