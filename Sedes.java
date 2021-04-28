@@ -34,6 +34,8 @@ public class Sedes {
         return string;
     }
 
+    // ################ Getter&Setters ##############################
+
     public ArrayList<Sede> getSedes() {
         return this.sedes;
     }

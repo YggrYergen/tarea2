@@ -18,6 +18,8 @@ public class Shelve {
 
     }
 
+    // ################ Getter&Setters ##############################
+
     public int getENumero() {
         return this.eNumero;
     }

@@ -37,6 +37,8 @@ public class Books {
         return string;
     }
 
+    // ################ Getter&Setters ##############################
+
     public ArrayList<Book> getBooks() {
         return this.books;
     }

@@ -28,6 +28,8 @@ public class Book {
 
     }
 
+    // ################ Getter&Setters ##############################
+
     public String getTitulo() {
         return this.titulo;
     }

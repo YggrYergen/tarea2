@@ -16,6 +16,8 @@ public class Sede {
         return string;
     }
 
+    // ################ Getter&Setters ##############################
+
     public String getSede() {
         return this.sede;
     }
