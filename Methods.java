@@ -3,7 +3,7 @@ import java.io.*;
 public class Methods {
 
     public static void dispMenu() {
-        int opcion_1;
+        // int opcion_1;
 
         System.out.println("Ingrese 1 para agregar libro.");
         System.out.println("Ingrese 2 para editar libro.");
