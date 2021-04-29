@@ -47,4 +47,38 @@ public class Books {
         this.books = books;
     }
 
+    public void editarLibro(){
+        System.out.println("Ingresar Libro a editar:");
+        String titulo = "\"" + input.nextLine() + "\"";
+        for (Book book : books) {
+            if (titulo.equalsIgnoreCase(book.getTitulo())) {
+                System.out.println("Ingresar opcion:");
+                System.out.println("[1] Editar titulo");
+                System.out.println("[2] Editar autor");
+                System.out.println("[3] Editar ano");
+                String opcion = input.nextLine();
+
+                switch(opcion){
+                    case "1":
+                        System.out.println("Ingresar Titulo a editar:");
+                        String nuevotitulo = input.nextLine();
+                        book.setTitulo(nuevotitulo);
+                        break;
+                    case "2":
+                        System.out.println("Ingresar Autor a editar:");
+                        String nuevoautor = input.nextLine();
+                        book.setAutor(nuevoautor);
+                        break;
+                    case "3":
+                        System.out.println("Ingresar Ano a editar:");
+                        int nuevoano = input.nextInt();
+                        book.setAnio(nuevoano);
+                        break;
+                    default:
+                        System.out.println("Salir del sistema");
+                        break;
+                }
+            }
+        }
+    }
 }

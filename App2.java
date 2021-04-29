@@ -6,9 +6,13 @@ public class App2 {
         Books biblioteca = new Books();
         Methods.readCsv(args[0], biblioteca);
 
-        biblioteca.buscarTitulo();
+        //biblioteca.buscarTitulo();
+        biblioteca.editarLibro();
 
-        // System.out.println(biblioteca.books.get(1).getAutor());
+        //System.out.println(biblioteca.books.get(1).getAutor());
+        System.out.println(biblioteca.books.get(0));
+        System.out.println(biblioteca.books.get(1));
+        System.out.println(biblioteca.books.get(2));
 
         // .sedes.get(0).shelves.get(0).books.get(0).getAutor()
 
