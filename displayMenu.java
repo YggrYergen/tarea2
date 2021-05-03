@@ -17,14 +17,15 @@ public class displayMenu {
     System.out.println("Ingrese 9 para agregar o quitar sede.");
     System.out.println("Ingrese 0 para salir.");
 
+    // TODO: registrar input (En todas)
+
     switch(opcion_menu) {
       case 1: // Agregar libro
         // Methods.agregarLibro(etc)
         break;
 
   
-      case 2: // Editar libro - TODO
-        // TODO: desplegar menu: editar libro
+      case 2: // Editar libro - TODO: registrar input
         System.out.println("Ingrese 1 para cambiar titulo.");
         System.out.println("Ingrese 2 para cambiar autor.");
         System.out.println("Ingrese 3 para cambiar anio.");
@@ -78,7 +79,8 @@ public class displayMenu {
         break;
 
       case 5: // Agregar o quitar seccion
-        // TODO: Desplegar opciones agregar o quitar  
+        // TODO: Desplegar opciones agregar o quitar 
+        // TODO: registrar input 
         switch(opcion_submenu) {
           case 1:
 
@@ -91,7 +93,8 @@ public class displayMenu {
         break;
 
       case 6: // Agregar o quitar estante
-        // TODO: Desplegar opciones agregar o quitar  
+        // TODO: Desplegar opciones agregar o quitar
+        // TODO: registrar input   
         switch(opcion_submenu) {
           case 1:
 
@@ -104,7 +107,8 @@ public class displayMenu {
         break;
 
       case 7: // Agregar o quitar piso
-        // TODO: Desplegar opciones agregar o quitar 
+        // TODO: Desplegar opciones agregar o quitar
+        // TODO: registrar input  
         switch(opcion_submenu) {
           case 1:
 
@@ -118,6 +122,7 @@ public class displayMenu {
 
       case 8: // Agregar o quitar edificio
         // TODO: Desplegar opciones agregar o quitar
+        // TODO: registrar input 
         switch(opcion_submenu) {
           case 1:
 
@@ -131,6 +136,7 @@ public class displayMenu {
 
       case 9: // Agregar o quitar sede
         // TODO: Desplegar opciones agregar o quitar
+        // TODO: registrar input 
         switch(opcion_submenu) {
           case 1:
 
@@ -144,7 +150,7 @@ public class displayMenu {
 
       case 0: // Salir con o sin guardar
         // TODO: Desplegar opciones guardar o no
-          
+        // TODO: registrar input 
         switch(opcion_submenu) {
           case 1:
 
