@@ -3,8 +3,8 @@ import java.io.*;
 public class displayMenu {
 
   public static void dispMenu() {
-    int opcion_menu;
-    int opcion_submenu;
+    int opcion_menu = 0;
+    int opcion_submenu = 0;
 
     System.out.println("Ingrese 1 para agregar libro.");
     System.out.println("Ingrese 2 para editar libro.");
@@ -22,48 +22,48 @@ public class displayMenu {
         // Methods.agregarLibro(etc)
         break;
 
+  
       case 2: // Editar libro - TODO
-
         // TODO: desplegar menu: editar libro
+        System.out.println("Ingrese 1 para cambiar titulo.");
+        System.out.println("Ingrese 2 para cambiar autor.");
+        System.out.println("Ingrese 3 para cambiar anio.");
+        System.out.println("Ingrese 4 para cambiar estante.");
+        System.out.println("Ingrese 5 para cambiar seccion.");
+        System.out.println("Ingrese 6 para cambiar piso.");
+        System.out.println("Ingrese 7 para cambiar edifico.");
+        System.out.println("Ingrese 8 para cambiar sede.");
 
         switch(opcion_submenu) {
           case 1: //    Cambiar titulo
-            System.out.println("Ingrese 1 para cambiar titulo.");
             // method.cambiarTitulo(etc)
             break;
 
           case 2: //    Cambiar autor
-            System.out.println("Ingrese 2 para cambiar autor.");
             // method.cambiarTitulo(etc)
             break;
 
           case 3: //    Cambiar anio
-            System.out.println("Ingrese 3 para cambiar anio.");
             // method.cambiarAnio(etc)
             break;
 
           case 4: //    Cambiar estante_numero
-            System.out.println("Ingrese 4 para cambiar estante.");
             // method.cambiarEstante(etc)
             break;
 
           case 5: //    Cambiar estante_seccion
-            System.out.println("Ingrese 3 para cambiar seccion.");
             // method.cambiarSeccion(etc)
             break;
 
           case 6:  //    Cambiar Piso
-            System.out.println("Ingrese 3 para cambiar Piso.");
             // method.cambiarPiso(etc)
             break;
 
           case 7: //    Cambiar Edificio
-            System.out.println("Ingrese 3 para cambiar Edificio.");
             // method.cambiarEdificio(etc)
             break;
 
           case 8: //    Cambiar Sede
-            System.out.println("Ingrese 3 para cambiar Sede.");
             // method.cambiarSede(etc)
             break;
         }
@@ -78,9 +78,7 @@ public class displayMenu {
         break;
 
       case 5: // Agregar o quitar seccion
-
-        // Desplegar opciones agregar o quitar
-          
+        // TODO: Desplegar opciones agregar o quitar  
         switch(opcion_submenu) {
           case 1:
 
@@ -92,10 +90,8 @@ public class displayMenu {
         }
         break;
 
-      case 6:
-        // Agregar o quitar estante
-        // Desplegar opciones agregar o quitar
-          
+      case 6: // Agregar o quitar estante
+        // TODO: Desplegar opciones agregar o quitar  
         switch(opcion_submenu) {
           case 1:
 
@@ -107,10 +103,8 @@ public class displayMenu {
         }
         break;
 
-      case 7:
-        // Agregar o quitar piso
-        // Desplegar opciones agregar o quitar
-          
+      case 7: // Agregar o quitar piso
+        // TODO: Desplegar opciones agregar o quitar 
         switch(opcion_submenu) {
           case 1:
 
@@ -122,10 +116,8 @@ public class displayMenu {
         }
         break;
 
-      case 8:
-        // Agregar o quitar edificio
-        // Desplegar opciones agregar o quitar
-          
+      case 8: // Agregar o quitar edificio
+        // TODO: Desplegar opciones agregar o quitar
         switch(opcion_submenu) {
           case 1:
 
@@ -137,10 +129,8 @@ public class displayMenu {
         }
         break;
 
-      case 9:
-        // Agregar o quitar sede
-        // Desplegar opciones agregar o quitar
-          
+      case 9: // Agregar o quitar sede
+        // TODO: Desplegar opciones agregar o quitar
         switch(opcion_submenu) {
           case 1:
 
@@ -152,9 +142,8 @@ public class displayMenu {
         }
         break;
 
-      case 0:
-        // Salir
-        // Desplegar opciones guardar o no
+      case 0: // Salir con o sin guardar
+        // TODO: Desplegar opciones guardar o no
           
         switch(opcion_submenu) {
           case 1:
