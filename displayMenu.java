@@ -1,10 +1,13 @@
 import java.io.*;
+import java.util.Scanner;
 
 public class displayMenu {
 
   public static void dispMenu() {
     int opcion_menu = 0;
     int opcion_submenu = 0;
+
+    Scanner scan = new Scanner(System.in);
 
     System.out.println("Ingrese 1 para agregar libro.");
     System.out.println("Ingrese 2 para editar libro.");
@@ -16,6 +19,8 @@ public class displayMenu {
     System.out.println("Ingrese 8 para agregar o quitar edificio.");
     System.out.println("Ingrese 9 para agregar o quitar sede.");
     System.out.println("Ingrese 0 para salir.");
+
+    opcion_menu = scan.nextInt();
 
     // TODO: registrar input (En todas)
 
@@ -34,6 +39,8 @@ public class displayMenu {
         System.out.println("Ingrese 6 para cambiar piso.");
         System.out.println("Ingrese 7 para cambiar edifico.");
         System.out.println("Ingrese 8 para cambiar sede.");
+
+        opcion_submenu = scan.nextInt();
 
         switch(opcion_submenu) {
           case 1: //    Cambiar titulo
@@ -80,84 +87,96 @@ public class displayMenu {
 
       case 5: // Agregar o quitar seccion
         // TODO: Desplegar opciones agregar o quitar 
-        // TODO: registrar input 
+        
+        opcion_submenu = scan.nextInt();
+
         switch(opcion_submenu) {
           case 1:
-
+            // Methods.agregarSeccion(etc)
             break;
 
           case 2:
-
+            // Methods.quitarSeccion(etc)
             break;
         }
         break;
 
       case 6: // Agregar o quitar estante
         // TODO: Desplegar opciones agregar o quitar
-        // TODO: registrar input   
+        
+        opcion_submenu = scan.nextInt();
+
         switch(opcion_submenu) {
           case 1:
-
+            // Methods.agregarEstante(etc)
             break;
 
           case 2:
-
+            // Methods.quitarEstante(etc)
             break;
         }
         break;
 
       case 7: // Agregar o quitar piso
         // TODO: Desplegar opciones agregar o quitar
-        // TODO: registrar input  
+        
+        opcion_submenu = scan.nextInt();
+
         switch(opcion_submenu) {
           case 1:
-
+            //Methods.agregarPiso()
             break;
 
           case 2:
-
+            // Methods.quitarPiso()
             break;
         }
         break;
 
       case 8: // Agregar o quitar edificio
         // TODO: Desplegar opciones agregar o quitar
-        // TODO: registrar input 
+        
+        opcion_submenu = scan.nextInt();
+
         switch(opcion_submenu) {
           case 1:
-
+            // Methods.agregarEdificio();
             break;
 
           case 2:
-
+            // Methods.quitarEdificio();
             break;
         }
         break;
 
       case 9: // Agregar o quitar sede
         // TODO: Desplegar opciones agregar o quitar
-        // TODO: registrar input 
+        
+        opcion_submenu = scan.nextInt();
+
         switch(opcion_submenu) {
           case 1:
-
+            // Methods.agregarSede();
             break;
 
           case 2:
-
+            // Methods.quitarSede();
             break;
         }
         break;
 
       case 0: // Salir con o sin guardar
         // TODO: Desplegar opciones guardar o no
-        // TODO: registrar input 
+        
+        opcion_submenu = scan.nextInt();
+
         switch(opcion_submenu) {
           case 1:
-
+            // Methods.salirYguardar()
             break;
 
           case 2:
-
+            // Methods.salirSinGuardar()
             break;
         }
         break; 
