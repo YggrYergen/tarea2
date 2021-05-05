@@ -17,7 +17,7 @@ public class Methods {
         System.out.println("Ingrese 0 para salir.");
     }
 
-    public static void readCsv(String args, Books biblioteca) {
+    public static void readCsv(String args, Books books, Shelves shelves, Sedes sedes) {
         String path = System.getProperty("user.dir") + "/" + args;
         String line = "";
         int bookNumber = 0, firstLine = 0;
@@ -32,23 +32,19 @@ public class Methods {
                 bookNumber++;
                 line = line.replace(",\"", "@\"");
                 line = line.replace("\",", "\"@");
-                line = line.replace(", ", "?");
+                line = line.replace(", ", "*");
                 line = line.replace(",", "@");
-                line = line.replace("?", ", ");
+                line = line.replace("*", ", ");
+                line = line.replace("\"", "");
                 String[] row = line.split("@");
 
-                Book b1 = new Book(row[0], row[1], Integer.valueOf(row[2]), Integer.valueOf(row[3]), row[4],
-                        Integer.valueOf(row[5]), row[6], row[7]);
+                Book b = new Book(row[0], row[1], Integer.valueOf(row[2]));
+                Shelve sh = new Shelve(Integer.valueOf(row[3]), row[4]);
+                Sede se = new Sede(Integer.valueOf(row[5]), row[6], row[7]);
 
-                biblioteca.addBook(b1);
-
-                // Books b2 = new Books();
-
-                // b2.addBook(b1);
-
-                // Shelve sh = new Shelve(Integer.valueOf(row[3]), row[4]);
-
-                // Sede se = new Sede(Integer.valueOf(row[5]), row[6], row[7]);
+                books.addBook(b);
+                shelves.addShelve(sh);
+                sedes.addSede(se);
 
                 // System.out.println(se);
             }
@@ -61,6 +57,10 @@ public class Methods {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void writeCSV() {
+
     }
 
 }

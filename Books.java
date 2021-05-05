@@ -2,16 +2,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Books {
-    Scanner input = new Scanner(System.in);
     public ArrayList<Book> books;
 
     public Books() {
         books = new ArrayList<>();
     }
 
-    public void buscarTitulo() {
+    public void buscarTitulo(Scanner input) {
         System.out.println("Ingresar Titulo a buscar:");
-        String titulo = "\"" + input.nextLine() + "\"";
+        String titulo = input.nextLine();
         int flag = 0;
         for (Book book : books) {
             if (titulo.equalsIgnoreCase(book.getTitulo())) {
@@ -22,11 +21,53 @@ public class Books {
 
         }
         if (flag == 0)
-            System.out.println("No Books of " + titulo + " Found.");
+            System.out.println("No se encontró el libro \"" + titulo + "\".");
     }
 
     public void addBook(Book book) {
         this.books.add(book);
+    }
+
+    public void deleteBook() {
+    }
+
+    public void editBook(Scanner input) {
+        System.out.println("Ingresar Libro a editar:");
+        String titulo = "\"" + input.nextLine() + "\"";
+        for (Book book : books) {
+            if (titulo.equalsIgnoreCase(book.getTitulo())) {
+                System.out.println("Ingresar opción:");
+                System.out.println("[1] Editar título");
+                System.out.println("[2] Editar autor");
+                System.out.println("[3] Editar año");
+                int opcion = input.nextInt();
+
+                switch (opcion) {
+                    case 1:
+                        System.out.println("Ingresar Titulo a editar:");
+                        String nuevotitulo = input.nextLine();
+                        book.setTitulo(nuevotitulo);
+                        break;
+                    case 2:
+                        System.out.println("Ingresar Autor a editar:");
+                        String nuevoautor = input.nextLine();
+                        book.setAutor(nuevoautor);
+                        break;
+                    case 3:
+                        System.out.println("Ingresar Ano a editar:");
+                        int nuevoano = input.nextInt();
+                        book.setAnio(nuevoano);
+                        break;
+                    default:
+                        System.out.println("Salir del sistema");
+                        break;
+                }
+            }
+        }
+    }
+
+    public void moveBook() {
+
     }
 
     public String toString() {
@@ -45,40 +86,5 @@ public class Books {
 
     public void setBooks(ArrayList<Book> books) {
         this.books = books;
-    }
-
-    public void editarLibro(){
-        System.out.println("Ingresar Libro a editar:");
-        String titulo = "\"" + input.nextLine() + "\"";
-        for (Book book : books) {
-            if (titulo.equalsIgnoreCase(book.getTitulo())) {
-                System.out.println("Ingresar opcion:");
-                System.out.println("[1] Editar titulo");
-                System.out.println("[2] Editar autor");
-                System.out.println("[3] Editar ano");
-                String opcion = input.nextLine();
-
-                switch(opcion){
-                    case "1":
-                        System.out.println("Ingresar Titulo a editar:");
-                        String nuevotitulo = input.nextLine();
-                        book.setTitulo(nuevotitulo);
-                        break;
-                    case "2":
-                        System.out.println("Ingresar Autor a editar:");
-                        String nuevoautor = input.nextLine();
-                        book.setAutor(nuevoautor);
-                        break;
-                    case "3":
-                        System.out.println("Ingresar Ano a editar:");
-                        int nuevoano = input.nextInt();
-                        book.setAnio(nuevoano);
-                        break;
-                    default:
-                        System.out.println("Salir del sistema");
-                        break;
-                }
-            }
-        }
     }
 }

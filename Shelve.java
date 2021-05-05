@@ -3,7 +3,11 @@ public class Shelve {
     private String eSeccion;
 
     public Shelve(int eNumero, String eSeccion) {
+        this.eNumero = eNumero;
+        this.eSeccion = eSeccion;
+    }
 
+    public void addSection(int eNumero, String eSeccion) {
         this.eNumero = eNumero;
         this.eSeccion = eSeccion;
     }
