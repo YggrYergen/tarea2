@@ -64,19 +64,21 @@ public class Books {
                     switch (opcion) {
                         case 1:
                             input.nextLine();
-                            System.out.print("Titulo actual: " + book.getAutor() + "\n");
+                            System.out.print("Titulo actual: " + book.getTitulo() + "\n");
                             System.out.println("Ingresar nuevo titulo:");
                             String nuevotitulo = input.nextLine();
                             book.setTitulo(nuevotitulo);
                             break;
                         case 2:
                             input.nextLine();
+                            System.out.print("Autor actual: " + book.getAutor() + "\n");
                             System.out.println("Ingresar nuevo autor:");
                             String nuevoautor = input.nextLine();
                             book.setAutor(nuevoautor);
                             break;
                         case 3:
                             input.nextLine();
+                            System.out.println("Anio actual: " + book.getAnio() + "\n");
                             System.out.println("Ingresar nuevo año:");
                             int nuevoano = input.nextInt();
                             book.setAnio(nuevoano);
