@@ -51,9 +51,8 @@ public class Books {
                 while (exit != true) {
                     System.out.print("\033[H\033[2J");
                     System.out.println("Informacion actual: \n");
-                    System.out.println("Titulo: " + book.getTitulo() + "\n" + "Autor: " + book.getAutor() + "\n"
-                            + "Anio: " + book.getAnio() + "\n");
-                    System.out.println("\nEliga una opcion:\n");
+                    System.out.println(book.toString());
+                    System.out.println("Eliga una opcion:\n");
                     System.out.println("[1] Editar titulo.");
                     System.out.println("[2] Editar autor.");
                     System.out.println("[3] Editar anio.");

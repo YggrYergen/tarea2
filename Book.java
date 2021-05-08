@@ -22,10 +22,14 @@ public class Book {
     }
 
     public String toString() {
+        return "Titulo: " + this.titulo + "\nautor: " + this.autor + "\naño: " + this.anio + "\n\n";
+
+    }
+
+    public String toStringComplete() {
         return "Titulo: " + this.titulo + "\nautor: " + this.autor + "\naño: " + this.anio + "\nEstante: "
                 + this.eNumero + "\nSeccion: " + this.eSeccion + "\nPiso: " + this.piso + "\nEdificio: " + this.edificio
                 + "\nSede: " + this.sede + "\n\n";
-
     }
 
     // ################ Getter&Setters ##############################
