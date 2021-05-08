@@ -2,21 +2,6 @@ import java.io.*;
 
 public class Methods {
 
-    public static void dispMenu() {
-        // int opcion_1;
-
-        System.out.println("Ingrese 1 para agregar libro.");
-        System.out.println("Ingrese 2 para editar libro.");
-        System.out.println("Ingrese 3 para buscar libro.");
-        System.out.println("Ingrese 4 para quitar libro.");
-        System.out.println("Ingrese 5 para agregar o quitar seccion.");
-        System.out.println("Ingrese 6 para agregar o quitar estante.");
-        System.out.println("Ingrese 7 para agregar o quitar piso.");
-        System.out.println("Ingrese 8 para agregar o quitar edificio.");
-        System.out.println("Ingrese 9 para agregar o quitar sede.");
-        System.out.println("Ingrese 0 para salir.");
-    }
-
     public static void readCsv(String args, Books books, Shelves shelves, Sedes sedes) {
         String path = System.getProperty("user.dir") + "/" + args;
         String line = "";
@@ -38,19 +23,17 @@ public class Methods {
                 line = line.replace("\"", "");
                 String[] row = line.split("@");
 
-                Book b = new Book(row[0], row[1], Integer.valueOf(row[2]));
+                Book b = new Book(row[0], row[1], Integer.valueOf(row[2]), Integer.valueOf(row[3]), row[4],
+                        Integer.valueOf(row[5]), row[6], row[7]);
                 Shelve sh = new Shelve(Integer.valueOf(row[3]), row[4]);
                 Sede se = new Sede(Integer.valueOf(row[5]), row[6], row[7]);
 
                 books.addBook(b);
                 shelves.addShelve(sh);
                 sedes.addSede(se);
-
-                // System.out.println(se);
             }
 
             csvReader.close();
-            // System.out.print(a);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
