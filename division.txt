@@ -1,9 +1,9 @@
 Leer csv                                                    Rorro
 
-Menu:                                                       Tomas
-    Sedes:                                                  Tomas
-        Agregar Sede                                        Tomas    
-        Quitar Sede                                         Tomas
+Menu:                                                       Tomas - Listo
+    Sedes:                                                  Tomas - Listo
+        Agregar Sede                                        Tomas - Listo    
+        Quitar Sede                                         Tomas - Listo
 
         Edificios:                                          Tomas
             Agregar Edificio                                Tomas

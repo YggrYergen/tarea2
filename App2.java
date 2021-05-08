@@ -190,11 +190,11 @@ public class App2 {
                 opcion_submenu = scan.nextInt();
                 switch(opcion_submenu) {
                 case 1:
-                    // Methods.agregarSede();
+                    biblioteca.agregarSede();
                     break;
 
                 case 2:
-                    // Methods.quitarSede();
+                    bilbioteca.quitarSede();
                     break;
                 }
                 break;
@@ -218,7 +218,7 @@ public class App2 {
             }
         }
         scan.close();
-        
+
         //  # # # # # # # # # # # # #
         //  # AQUI TERMINA  EL MENU #
         //  # # # # # # # # # # # # #

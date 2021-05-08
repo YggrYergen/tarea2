@@ -1,3 +1,4 @@
+import java.awt.print.Book;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -81,4 +82,47 @@ public class Books {
             }
         }
     }
+
+    public void agregarSede(){
+        System.out.println("Ingrese sede a agregar:");
+        String sedeNueva = "\"" + input.nextLine() + "\"";
+        Book sede = new Book("", "", 0, 0, "", 0, "", sedeNueva);
+        books.add(sede);
+    }
+
+    public void quitarSede(){
+        System.out.println("Ingrese sede a quitar:");
+        String sedeAquitar = "\"" + input.nextLine() + "\"";
+        for (Book book : books){
+            if(sedeAquitar.equalsIgnoreCase(book.getSede())){
+                System.out.println("Imposible quitar sede, aun tiene libros adentro!");
+                System.out.println("Quite todos los libros de esa sede antes de volver a intenarlo");
+                break;
+            }
+        }
+    }
+
+    public void agregarEdificio(){
+        System.out.println("Ingrese edificio a agregar:");
+        String edificioNuevo = "\"" + input.nextLine() + "\"";
+        Book edificio = new Book("", "", 0, 0, "", 0, edificioNuevo, "");
+        books.add(edificio);
+    }
+
+    public void quitarEdificio(){
+        System.out.println("Ingrese edificio a quitar:");
+        String edificioAquitar = "\"" + input.nextLine() + "\"";
+        for (Book book : books){
+            if(edificioAquitar.equalsIgnoreCase(book.getEdificio())){
+                System.out.println("Imposible quitar edificio, aun tiene libros adentro!");
+                System.out.println("Quite todos los libros de esa edificio antes de volver a intenarlo");
+                break;
+            }
+        }
+    }
+
+    /*
+    Book(String titulo, String autor, int anio, int eNumero, String eSeccion, int piso, String edificio,
+            String sede)
+    */
 }
