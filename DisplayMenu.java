@@ -34,7 +34,6 @@ public class DisplayMenu {
           break;
 
         case 3: // Buscar libro
-          System.out.print("\033[H\033[2J");
           books.buscarTitulo(input);
           break;
 
