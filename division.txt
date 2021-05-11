@@ -1,29 +1,29 @@
 Leer csv                                                    Rorro
 
-Menu:                                                       Tomas
-    Sedes:                                                  Tomas
+Menu:                                                       
+    Sedes:                                                  
         Agregar Sede - Pauta                                Tomas    
         Quitar Sede - Pauta                                 Tomas
 
-        Pisos:                                          Tomas
-            Agregar Piso - Pauta                        Tomas
-            Quitar Piso - Pauta                         Tomas
+        Pisos:                                          
+            Agregar Piso - Pauta                            Seba
+            Quitar Piso - Pauta                             Seba
 
             Seccion:
-                Agregar seccion - Pauta
-                Quitar seccion - Pauta    
+                Agregar seccion - Pauta                     Seba
+                Quitar seccion - Pauta                      Seba
 
-                    Libros:                             Grupo: Cata, Esteban, Tomas
-                        Agregar libro - Pauta           Esteban
-                        Editar libro: - Pauta           Cata
-                            Cambiar titulo              Cata
-                            Cambiar autor               Cata 
-                            Cambiar anio                Cata
-                            Cambiar eSeccion - Pauta    Cata
-                            Cambiar Piso - Pauta        Cata
-                            Cambiar Sede - Pauta        Cata
-                        Buscar libro - Pauta            Tomas
-                        Quitar libro - Pauta            Esteban
+                    Libros:                             
+                        Agregar libro - Pauta               Esteban
+                        Editar libro: - Pauta               Cata
+                            Cambiar titulo                  Cata
+                            Cambiar autor                   Cata 
+                            Cambiar anio                    Cata
+                            Cambiar eSeccion - Pauta        Cata
+                            Cambiar Piso - Pauta            Cata
+                            Cambiar Sede - Pauta            Cata
+                        Buscar libro - Pauta                Tomas
+                        Quitar libro - Pauta                Esteban
 
 Guardar                                                     Esteban
 
