@@ -4,7 +4,7 @@ public class Biblioteca {
     public ArrayList<Sede> sedes;
 
     public Biblioteca() {
-
+        sedes = new ArrayList<>();
     }
 
     public void addSede(Sede sede) {

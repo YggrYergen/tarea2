@@ -26,6 +26,7 @@ public class DisplayMenu {
           // Methods.agregarLibro(etc);
           break;
         case 2: // Editar libro
+          System.out.print("\033[H\033[2J");
           System.out.println("Eliga una de las siguientes opciones:\n");
           System.out.println("[1] cambiar titulo.");
           System.out.println("[2] cambiar autor.");
