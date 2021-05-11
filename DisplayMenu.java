@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class DisplayMenu {
 
-  public static void dispMenu(Books books, Shelves shelves, Sedes sedes) {
+  public static void dispMenu(Sede sedes) {
     Scanner input = new Scanner(System.in);
     boolean salir = false;
     int opcion_menu, opcion_submenu;
@@ -34,7 +34,12 @@ public class DisplayMenu {
           break;
 
         case 3: // Buscar libro
-          books.buscarTitulo(input);
+          input.nextLine();
+          System.out.print("\033[H\033[2J");
+          System.out.println("Ingresar Titulo a buscar:");
+          String titulo = input.nextLine();
+          Book book = books.buscarTitulo(titulo);
+          System.out.println(book.toString());
           break;
 
         case 4: // Quitar libro

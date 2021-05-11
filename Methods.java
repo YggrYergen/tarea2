@@ -2,7 +2,7 @@ import java.io.*;
 
 public class Methods {
 
-    public static void readCsv(String args, Books books, Shelves shelves, Sedes sedes) {
+    public static void readCsv(String args, Rack books, Floor shelves, Sedes sedes) {
         String path = System.getProperty("user.dir") + "/" + args;
         String line = "";
         int bookNumber = 0, firstLine = 0;
@@ -23,8 +23,7 @@ public class Methods {
                 line = line.replace("\"", "");
                 String[] row = line.split("@");
 
-                Book b = new Book(row[0], row[1], Integer.valueOf(row[2]), Integer.valueOf(row[3]), row[4],
-                        Integer.valueOf(row[5]), row[6], row[7]);
+                Book b = new Book(row[0], row[1], Integer.valueOf(row[2]));
                 Shelve sh = new Shelve(Integer.valueOf(row[3]), row[4]);
                 Sede se = new Sede(Integer.valueOf(row[5]), row[6], row[7]);
 
