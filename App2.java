@@ -1,10 +1,11 @@
+import java.text.Bidi;
+
 public class App2 {
 
     public static void main(String[] args) {
-        Books books = new Books();
-        Shelves shelves = new Shelves();
-        Sedes sedes = new Sedes();
+        biblioteca biblioteca = new biblioteca();+
 
+<<<<<<< HEAD
         Methods.readCsv(args[0], books, shelves, sedes);
 <<<<<<< Updated upstream
         DisplayMenu.dispMenu(books, shelves, sedes);
@@ -20,5 +21,9 @@ public class App2 {
         // DisplayMenu.dispMenu(input);
         // Methods.dispMenu();
 >>>>>>> Stashed changes
+=======
+        Methods.readCsv(args[0],biblioteca);
+        DisplayMenu.dispMenu(biblioteca);
+>>>>>>> e8f0e9d8bb62a7f74c775cf6d83c9cbc00e9cbcd
     }
 }
