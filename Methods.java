@@ -2,7 +2,7 @@ import java.io.*;
 
 public class Methods {
 
-    public static void readCsv(String args, Rack books, Floor shelves, Sedes sedes) {
+    public static void readCsv(String args, Biblioteca biblioteca) {
         String path = System.getProperty("user.dir") + "/" + args;
         String line = "";
         int bookNumber = 0, firstLine = 0;
@@ -23,14 +23,17 @@ public class Methods {
                 line = line.replace("\"", "");
                 String[] row = line.split("@");
 
-                Book b = new Book(row[0], row[1], Integer.valueOf(row[2]));
-                Rack sh = new Rack(Integer.valueOf(row[3]), row[4]);
-                Floor f = new Floor(Integer.valueOf(row[5]));
-                Edificio ed = new Edificio(row[6]);
-                Sede se = new Sede(row[7]);
+                Book book = new Book(row[0], row[1], Integer.valueOf(row[2]));
+                Rack rack = new Rack(Integer.valueOf(row[3]), row[4]);
+                Floor floor = new Floor(Integer.valueOf(row[5]));
+                Edificio edificio = new Edificio(row[6]);
+                Sede sede = new Sede(row[7]);
 
-                books.addBook(b);
-
+                rack.addBook(book);
+                floor.addRack(rack);
+                edificio.addFloor(floor);
+                sede.addEdificio(edificio);
+                biblioteca.addSede(sede);
             }
 
             csvReader.close();

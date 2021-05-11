@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
-public class biblioteca {
+public class Biblioteca {
     public ArrayList<Sede> sedes;
 
-    public biblioteca() {
+    public Biblioteca() {
 
     }
 
