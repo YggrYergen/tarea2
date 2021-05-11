@@ -6,8 +6,10 @@ public class Rack {
     public int eNumero;
     public String eSeccion;
 
-    public Rack() {
+    public Rack(int eNumero, String eSeccion) {
         books = new ArrayList<>();
+        this.eNumero = eNumero;
+        this.eSeccion = eSeccion;
     }
 
     public Book buscarTitulo(String titulo) {

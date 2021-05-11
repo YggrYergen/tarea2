@@ -24,12 +24,13 @@ public class Methods {
                 String[] row = line.split("@");
 
                 Book b = new Book(row[0], row[1], Integer.valueOf(row[2]));
-                Shelve sh = new Shelve(Integer.valueOf(row[3]), row[4]);
-                Sede se = new Sede(Integer.valueOf(row[5]), row[6], row[7]);
+                Rack sh = new Rack(Integer.valueOf(row[3]), row[4]);
+                Floor f = new Floor(Integer.valueOf(row[5]));
+                Edificio ed = new Edificio(row[6]);
+                Sede se = new Sede(row[7]);
 
                 books.addBook(b);
-                shelves.addShelve(sh);
-                sedes.addSede(se);
+
             }
 
             csvReader.close();

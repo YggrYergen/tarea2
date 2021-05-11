@@ -4,7 +4,7 @@ public class Sede {
     protected String sede;
     public ArrayList<Edificio> edificios;
 
-    public Sede(int piso, String edificio, String sede) {
+    public Sede(String sede) {
         this.sede = sede;
         edificios = new ArrayList<>();
     }
