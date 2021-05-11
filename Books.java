@@ -40,11 +40,16 @@ public class Books {
     }
 
     public void editBook(Scanner input) {
+<<<<<<< Updated upstream
         input.nextLine();
         System.out.print("\033[H\033[2J");
         System.out.println("\nIngresar Libro a editar:");
         String titulo = input.nextLine();
         System.out.print("\033[H\033[2J");
+=======
+        System.out.println("Ingresar Libro a editar:");
+        String titulo = input.nextLine();
+>>>>>>> Stashed changes
         for (Book book : books) {
             if (titulo.equalsIgnoreCase(book.getTitulo())) {
                 Boolean exit = false;

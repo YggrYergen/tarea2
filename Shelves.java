@@ -31,4 +31,19 @@ public class Shelves {
         this.shelves = shelves;
     }
 
+    /*public void editShelves(Scanner input){
+        System.out.println("Ingresar Libro a editar:");
+        String titulo = "\"" + input.nextLine() + "\"";
+        for (Book book : books) {
+            if (titulo.equalsIgnoreCase(book.getTitulo())) {
+                System.out.println("Ingresar Sede a editar:");
+                String nuevasede = input.nextLine();
+                book.setShelves(nuevasede);
+                break;
+            }
+            else
+            System.out.println("No se encuentra el libro");
+            break;
+        }
+    }*/
 }
