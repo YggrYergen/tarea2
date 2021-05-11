@@ -1,35 +1,30 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Books {
+public class Rack {
     public ArrayList<Book> books;
+    public int eNumero;
+    public String eSeccion;
 
-    public Books() {
+    public Rack() {
         books = new ArrayList<>();
     }
 
-    public void buscarTitulo(Scanner input) {
-        input.nextLine();
-        System.out.print("\033[H\033[2J");
-        System.out.println("Ingresar Titulo a buscar:");
-        String titulo = input.nextLine();
-        int flag = 0;
+    public Book buscarTitulo(String titulo) {
         for (Book book : books) {
             if (titulo.equalsIgnoreCase(book.getTitulo())) {
-                System.out.print("\033[H\033[2J");
-                System.out.println("\nLibro encontrado!\n");
-                System.out.println(book.toString());
-                flag++;
-                System.out.println(("\nPresione enter para continuar."));
-                input.nextLine();
+                /*
+                 * System.out.print("\033[H\033[2J");
+                 * System.out.println("\nLibro encontrado!\n");
+                 * System.out.println(book.toString());
+                 */
+                return book;
+                /*
+                 * System.out.println(("\nPresione enter para continuar.")); input.nextLine();
+                 */
             }
-
         }
-        if (flag == 0) {
-            System.out.println("No se encontró el libro \"" + titulo + "\".");
-            System.out.println(("\nPresione enter para continuar."));
-            input.nextLine();
-        }
+        return null;
     }
 
     public void addBook(Book book) {
@@ -40,16 +35,11 @@ public class Books {
     }
 
     public void editBook(Scanner input) {
-<<<<<<< Updated upstream
         input.nextLine();
         System.out.print("\033[H\033[2J");
         System.out.println("\nIngresar Libro a editar:");
         String titulo = input.nextLine();
         System.out.print("\033[H\033[2J");
-=======
-        System.out.println("Ingresar Libro a editar:");
-        String titulo = input.nextLine();
->>>>>>> Stashed changes
         for (Book book : books) {
             if (titulo.equalsIgnoreCase(book.getTitulo())) {
                 Boolean exit = false;
@@ -120,4 +110,21 @@ public class Books {
     public void setBooks(ArrayList<Book> books) {
         this.books = books;
     }
+
+    public int getENumero() {
+        return this.eNumero;
+    }
+
+    public void setENumero(int eNumero) {
+        this.eNumero = eNumero;
+    }
+
+    public String getESeccion() {
+        return this.eSeccion;
+    }
+
+    public void setESeccion(String eSeccion) {
+        this.eSeccion = eSeccion;
+    }
+
 }
