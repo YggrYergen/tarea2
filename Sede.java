@@ -1,18 +1,25 @@
+import java.util.ArrayList;
+
 public class Sede {
     protected String sede;
-    protected String edificio;
-    protected int piso;
+    public ArrayList<Edificio> edificios;
 
     public Sede(int piso, String edificio, String sede) {
-
         this.sede = sede;
-        this.edificio = edificio;
-        this.piso = piso;
+        edificios = new ArrayList<>();
+    }
+
+    public void addEdificio(Edificio edificio) {
+        this.edificios.add(edificio);
+    }
+
+    public void removeEdificio(Edificio edificio) {
+        this.edificios.remove(edificio);
     }
 
     public String toString() {
         String string = "";
-        string += "\nPiso: " + this.piso + "\nEdificio: " + this.edificio + "\nSede: " + this.sede + "\n\n";
+        string += this.sede + "\n\n";
         return string;
     }
 
@@ -26,20 +33,7 @@ public class Sede {
         this.sede = sede;
     }
 
-    public String getEdificio() {
-        return this.edificio;
+    public ArrayList<Edificio> getEdificios() {
+        return this.edificios;
     }
-
-    public void setEdificio(String edificio) {
-        this.edificio = edificio;
-    }
-
-    public int getPiso() {
-        return this.piso;
-    }
-
-    public void setPiso(int piso) {
-        this.piso = piso;
-    }
-
 }

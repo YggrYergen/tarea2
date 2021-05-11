@@ -16,10 +16,6 @@ public class Book {
 
     }
 
-    public String toStringComplete() {
-        return "Titulo: " + this.titulo + "\nautor: " + this.autor + "\naño: " + this.anio + "\n\n";
-    }
-
     // ################ Getter&Setters ##############################
 
     public String getTitulo() {

@@ -2,20 +2,26 @@ import java.util.ArrayList;
 
 public class Floor {
     public ArrayList<Rack> racks;
+    int floor;
 
-    public Floor() {
+    public Floor(int floor) {
         racks = new ArrayList<>();
+        this.floor = floor;
     }
 
-    public void addShelve(Rack rack) {
+    public void addRack(Rack rack) {
         this.racks.add(rack);
 
     }
 
+    public void removeRack(Rack rack) {
+        this.racks.remove(rack);
+    }
+
     public String toString() {
         String string = "";
-        for (Rack shelve : racks) {
-            string += shelve.toString();
+        for (Rack rack : racks) {
+            string += rack.toString();
         }
         return string;
     }
@@ -26,8 +32,11 @@ public class Floor {
         return this.racks;
     }
 
-    public void setShelves(ArrayList<Rack> racks) {
-        this.racks = racks;
+    public int getFloor() {
+        return this.floor;
     }
 
+    public void setFloor(int floor) {
+        this.floor = floor;
+    }
 }
