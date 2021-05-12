@@ -10,8 +10,15 @@ public class Floor {
     }
 
     public void addRack(Rack rack) {
-        this.racks.add(rack);
-
+        int flag = 0;
+        for (Rack racks : racks) {
+            if (racks.getENumero() == rack.getENumero()) {
+                flag++;
+                break;
+            }
+        }
+        if (flag == 0)
+            this.racks.add(rack);
     }
 
     public void removeRack(Rack rack) {
@@ -20,10 +27,28 @@ public class Floor {
 
     public String toString() {
         String string = "";
-        for (Rack rack : racks) {
-            string += rack.toString();
-        }
+        string += "Piso: " + this.floor + "\n";
         return string;
+    }
+
+    public String buscarTitulo(String titulo) {
+        String book = "";
+        for (Rack rack : racks) {
+            book = rack.buscarTitulo(titulo);
+            if (book != null)
+                return book += this.toString();
+        }
+        return null;
+    }
+
+    public Book getBook(String titulo) {
+        Book book;
+        for (Rack rack : racks) {
+            book = rack.getBook(titulo);
+            if (book != null)
+                return book;
+        }
+        return null;
     }
 
     // ################ Getter&Setters ##############################

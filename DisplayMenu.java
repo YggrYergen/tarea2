@@ -6,6 +6,7 @@ public class DisplayMenu {
     Scanner input = new Scanner(System.in);
     boolean salir = false;
     int opcion_menu, opcion_submenu;
+    Book book;
     while (salir != true) {
       System.out.println("\n¡Bienvenido a la biblioteca UAI!\n");
       System.out.println("Eliga una de las siguientes opciones:\n");
@@ -26,6 +27,10 @@ public class DisplayMenu {
           // Methods.agregarLibro(etc);
           break;
         case 2: // Editar libro
+          input.nextLine();
+          System.out.print("\033[H\033[2J");
+          System.out.println("\nIngresar Libro a editar:");
+          String titulo = input.nextLine();
           System.out.print("\033[H\033[2J");
           System.out.println("Eliga una de las siguientes opciones:\n");
           System.out.println("[1] cambiar titulo.");
@@ -39,14 +44,34 @@ public class DisplayMenu {
           opcion_submenu = input.nextInt();
           switch (opcion_submenu) {
             case 1: // Cambiar titulo
+              input.nextLine();
+              book = biblioteca.getBook(titulo);
+              System.out.println("Titulo Actual: " + book.getTitulo());
+              System.out.print("\nNuevo titulo: ");
+              String newTitle = input.nextLine();
+              book.setTitulo(newTitle);
+
               // method.cambiarTitulo(etc)
               break;
 
             case 2: // Cambiar autor
+              input.nextLine();
+              book = biblioteca.getBook(titulo);
+              System.out.println("Autor actual: " + book.getAutor());
+              System.out.print("\nNuevo autor: ");
+              String newAutor = input.nextLine();
+              book.setAutor(newAutor);
               // method.cambiarAutor(etc)
               break;
 
             case 3: // Cambiar anio
+              input.nextLine();
+              book = biblioteca.getBook(titulo);
+              System.out.println("Anio actual: " + book.getAnio());
+              System.out.print("\nNuevo anio: ");
+              int newAnio = input.nextInt();
+              book.setAnio(newAnio);
+
               // method.cambiarAnio(etc)
               break;
 
@@ -76,9 +101,15 @@ public class DisplayMenu {
           input.nextLine();
           System.out.print("\033[H\033[2J");
           System.out.println("Ingresar Titulo a buscar:");
-          String titulo = input.nextLine();
-          // Book book = books.buscarTitulo(titulo);
-          // System.out.println(book.toString());
+          titulo = input.nextLine();
+          String bookInfo = biblioteca.buscarTitulo(titulo);
+          if (bookInfo != null) {
+            System.out.print("\033[H\033[2J");
+            System.out.println("\nLibro encontrado!\n");
+            System.out.println(bookInfo);
+            System.out.println(("\nPresione enter para continuar."));
+            input.nextLine();
+          }
           break;
 
         case 4: // Quitar libro

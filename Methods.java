@@ -5,7 +5,7 @@ public class Methods {
     public static void readCsv(String args, Biblioteca biblioteca) {
         String path = System.getProperty("user.dir") + "/" + args;
         String line = "";
-        int bookNumber = 0, firstLine = 0;
+        int firstLine = 0;
 
         try {
             BufferedReader csvReader = new BufferedReader(new FileReader(path));
@@ -14,7 +14,6 @@ public class Methods {
                     firstLine++;
                     continue;
                 }
-                bookNumber++;
                 line = line.replace(",\"", "@\"");
                 line = line.replace("\",", "\"@");
                 line = line.replace(", ", "*");
@@ -29,11 +28,11 @@ public class Methods {
                 Edificio edificio = new Edificio(row[6]);
                 Sede sede = new Sede(row[7]);
 
-                rack.addBook(book);
-                floor.addRack(rack);
-                edificio.addFloor(floor);
-                sede.addEdificio(edificio);
                 biblioteca.addSede(sede);
+                sede.addEdificio(edificio);
+                edificio.addFloor(floor);
+                floor.addRack(rack);
+                rack.addBook(book);
             }
 
             csvReader.close();
