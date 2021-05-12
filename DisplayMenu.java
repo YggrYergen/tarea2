@@ -41,12 +41,13 @@ public class DisplayMenu {
           System.out.println("[6] cambiar piso.");
           System.out.println("[7] cambiar edifico.");
           System.out.println("[8] cambiar sede.");
+          System.out.print("\nOpcion:  ");
           opcion_submenu = input.nextInt();
           switch (opcion_submenu) {
             case 1: // Cambiar titulo
               input.nextLine();
               book = biblioteca.getBook(titulo);
-              System.out.println("Titulo Actual: " + book.getTitulo());
+              System.out.println("\nTitulo Actual: " + book.getTitulo());
               System.out.print("\nNuevo titulo: ");
               String newTitle = input.nextLine();
               book.setTitulo(newTitle);
@@ -57,7 +58,7 @@ public class DisplayMenu {
             case 2: // Cambiar autor
               input.nextLine();
               book = biblioteca.getBook(titulo);
-              System.out.println("Autor actual: " + book.getAutor());
+              System.out.println("\nAutor actual: " + book.getAutor());
               System.out.print("\nNuevo autor: ");
               String newAutor = input.nextLine();
               book.setAutor(newAutor);
@@ -67,7 +68,7 @@ public class DisplayMenu {
             case 3: // Cambiar anio
               input.nextLine();
               book = biblioteca.getBook(titulo);
-              System.out.println("Anio actual: " + book.getAnio());
+              System.out.println("\nAnio actual: " + book.getAnio());
               System.out.print("\nNuevo anio: ");
               int newAnio = input.nextInt();
               book.setAnio(newAnio);
