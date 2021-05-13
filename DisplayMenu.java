@@ -1,8 +1,9 @@
 import java.util.Scanner;
+import java.io.*;
 
 public class DisplayMenu {
 
-  public static void dispMenu(Biblioteca biblioteca) {
+  public static void dispMenu(Biblioteca biblioteca) throws IOException {
     Scanner input = new Scanner(System.in);
     boolean salir = false;
     int opcion_menu, opcion_submenu;
@@ -25,6 +26,33 @@ public class DisplayMenu {
       switch (opcion_menu) {
         case 1: // Agregar libro
           // Methods.agregarLibro(etc);
+          // Agregar Libro //
+          input.nextLine();
+          System.out.print("\033[H\033[2J");
+          System.out.println("\n[Agregar Libro]\n");
+          System.out.println("Ingrese la información del nuevo libro en formato CSV:\n");
+
+          String line = input.nextLine();
+          line = line.replace(",\"", "@\"");
+          line = line.replace("\",", "\"@");
+          line = line.replace(", ", "*");
+          line = line.replace(",", "@");
+          line = line.replace("*", ", ");
+          line = line.replace("\"", "");
+          String[] user_add = line.split("@");
+
+          Book new_book = new Book(user_add[0], user_add[1], Integer.valueOf(user_add[2]));
+          Rack new_rack = new Rack(Integer.valueOf(user_add[3]), user_add[4]);
+          Floor new_floor = new Floor(Integer.valueOf(user_add[5]));
+          Edificio new_edificio = new Edificio(user_add[6]);
+          Sede new_sede = new Sede(user_add[7]);
+
+          biblioteca.addSede(new_sede);
+          new_sede.addEdificio(new_edificio);
+          new_edificio.addFloor(new_floor);
+          new_floor.addRack(new_rack);
+          new_rack.addBook(new_book);
+          //////////////////
           break;
         case 2: // Editar libro
           input.nextLine();
@@ -211,6 +239,38 @@ public class DisplayMenu {
         case 0: // Salir
           System.out.print("\033[H\033[2J");
           System.out.println("Guardando y saliendo...\n");
+          // Sistema de guardado //
+          for (int i = 0; i < biblioteca.sedes.size(); i++) {
+
+            // Escribir el header del CSV
+            if (i == 0) {
+              PrintWriter writer = new PrintWriter("biblioteca2.csv");
+              writer.write("titulo,autor,anio,estante_numero,estante_seccion,piso,edificio,sede");
+              writer.append("\n");
+              writer.close();
+            }
+
+            // Checks si array esta vacío (no contiene libro)
+            if ((biblioteca.sedes.get(i).getEdificios().isEmpty() == true) || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().isEmpty() == true) || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().isEmpty() == true)) {
+              continue;
+            }
+
+            // Título del libro para obtener toda su información en formato CSV mediante .obtenerInfoCSV()
+            String str_tit = biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().get(0).getBooks().get(0).getTitulo();
+
+            String bookCSV = biblioteca.obtenerInfoCSV(str_tit);
+
+            // Escribir toda la información en el archivo
+
+            BufferedWriter writer = new BufferedWriter(new FileWriter("biblioteca2.csv", true));
+            writer.append(bookCSV);
+
+            if (i != (biblioteca.sedes.size() - 1)) {
+              writer.append("\n");
+            }
+            writer.close();
+
+          }
           salir = true;
           break;
       }
