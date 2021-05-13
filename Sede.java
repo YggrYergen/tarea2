@@ -31,12 +31,28 @@ public class Sede {
         return string;
     }
 
+    public String pure_toString() {
+        String string = "";
+        string += this.sede + "\"";
+        return string;
+    }
+
     public String buscarTitulo(String titulo) {
         String book = "";
         for (Edificio edificio : edificios) {
             book = edificio.buscarTitulo(titulo);
             if (book != null)
                 return book += this.toString();
+        }
+        return null;
+    }
+    
+    public String obtenerInfoCSV(String titulo) {
+        String book = "";
+        for (Edificio edificio : edificios) {
+            book = edificio.obtenerInfoCSV(titulo);
+            if (book != null)
+                return book += this.pure_toString();
         }
         return null;
     }
