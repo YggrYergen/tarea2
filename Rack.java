@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Rack {
     public ArrayList<Book> books;
@@ -45,7 +44,7 @@ public class Rack {
             }
         }
         return null;
-    }    
+    }
 
     public Book getBook(String titulo) {
         for (Book book : books) {
@@ -55,32 +54,6 @@ public class Rack {
         }
         return null;
     }
-
-    /*
-     * public void editBook() { System.out.print("\033[H\033[2J"); for (Book book :
-     * books) { if (titulo.equalsIgnoreCase(book.getTitulo())) { Boolean exit =
-     * false; while (exit != true) { System.out.print("\033[H\033[2J");
-     * System.out.println("Informacion actual: \n");
-     * System.out.println(book.toString());
-     * System.out.println("Eliga una opcion:\n");
-     * System.out.println("[1] Editar titulo.");
-     * System.out.println("[2] Editar autor.");
-     * System.out.println("[3] Editar anio."); System.out.println("[4] Salir.");
-     * System.out.print("\nOpcion:  "); int opcion = input.nextInt();
-     * System.out.print("\033[H\033[2J");
-     * 
-     * switch (opcion) { case 1: input.nextLine();
-     * System.out.print("Titulo actual: " + book.getTitulo() + "\n");
-     * System.out.println("Ingresar nuevo titulo:"); String nuevotitulo =
-     * input.nextLine(); book.setTitulo(nuevotitulo); break; case 2:
-     * input.nextLine(); System.out.print("Autor actual: " + book.getAutor() +
-     * "\n"); System.out.println("Ingresar nuevo autor:"); String nuevoautor =
-     * input.nextLine(); book.setAutor(nuevoautor); break; case 3: input.nextLine();
-     * System.out.println("Anio actual: " + book.getAnio() + "\n");
-     * System.out.println("Ingresar nuevo año:"); int nuevoano = input.nextInt();
-     * book.setAnio(nuevoano); break; default: System.out.print("\033[H\033[2J");
-     * exit = true; System.out.println("\nVolviendo...\n"); break; } } } } }
-     */
 
     public void moveBook() {
 
@@ -96,7 +69,7 @@ public class Rack {
         String string = "";
         string += this.eNumero + ",\"" + this.eSeccion + "\",";
         return string;
-    }    
+    }
 
     // ################ Getter&Setters ##############################
 

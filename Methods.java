@@ -14,14 +14,8 @@ public class Methods {
                     firstLine++;
                     continue;
                 }
-                line = line.replace(",\"", "@\"");
-                line = line.replace("\",", "\"@");
-                line = line.replace(", ", "*");
-                line = line.replace(",", "@");
-                line = line.replace("*", ", ");
-                line = line.replace("\"", "");
-                String[] row = line.split("@");
 
+                String[] row = Methods.splitLine(line);
                 Book book = new Book(row[0], row[1], Integer.valueOf(row[2]));
                 Rack rack = new Rack(Integer.valueOf(row[3]), row[4]);
                 Floor floor = new Floor(Integer.valueOf(row[5]));
@@ -44,8 +38,53 @@ public class Methods {
         }
     }
 
-    public static void writeCSV() {
+    public static void writeCSV(Biblioteca biblioteca) throws IOException {
+        for (int i = 0; i < biblioteca.sedes.size(); i++) {
 
+            // Escribir el header del CSV
+            if (i == 0) {
+                PrintWriter writer = new PrintWriter("biblioteca2.csv");
+                writer.write("titulo,autor,anio,estante_numero,estante_seccion,piso,edificio,sede");
+                writer.append("\n");
+                writer.close();
+            }
+
+            // Checks si array esta vacío (no contiene libro)
+            if ((biblioteca.sedes.get(i).getEdificios().isEmpty() == true)
+                    || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().isEmpty() == true)
+                    || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks()
+                            .isEmpty() == true)) {
+                continue;
+            }
+
+            // Título del libro para obtener toda su información en formato CSV mediante
+            // .obtenerInfoCSV()
+            String str_tit = biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().get(0)
+                    .getBooks().get(0).getTitulo();
+
+            String bookCSV = biblioteca.obtenerInfoCSV(str_tit);
+
+            // Escribir toda la información en el archivo
+            BufferedWriter writer = new BufferedWriter(new FileWriter("biblioteca2.csv", true));
+            writer.append(bookCSV);
+
+            if (i != (biblioteca.sedes.size() - 1)) {
+                writer.append("\n");
+            }
+            writer.close();
+        }
+    }
+
+    public static String[] splitLine(String line) {
+        String[] user_add;
+        line = line.replace(",\"", "@\"");
+        line = line.replace("\",", "\"@");
+        line = line.replace(", ", "*");
+        line = line.replace(",", "@");
+        line = line.replace("*", ", ");
+        line = line.replace("\"", "");
+        user_add = line.split("@");
+        return user_add;
     }
 
 }
