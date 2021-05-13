@@ -35,6 +35,16 @@ public class Edificio {
         return null;
     }
 
+    public String obtenerInfoCSV(String titulo) {
+        String book = "";
+        for (Floor floor : floors) {
+            book = floor.obtenerInfoCSV(titulo);
+            if (book != null)
+                return book += this.pure_toString();
+        }
+        return null;
+    }    
+
     public Book getBook(String titulo) {
         Book book;
         for (Floor floor : floors) {
@@ -48,6 +58,12 @@ public class Edificio {
     public String toString() {
         String string = "";
         string += "Edificio: " + this.edificio + "\n";
+        return string;
+    }
+
+    public String pure_toString() {
+        String string = "";
+        string += this.edificio + "\",\"";
         return string;
     }
 
