@@ -30,6 +30,16 @@ public class Biblioteca {
         return null;
     }
 
+    public String obtenerInfoCSV(String titulo) {
+        String book = "";
+        for (Sede sede : sedes) {
+            book = sede.obtenerInfoCSV(titulo);
+            if (book != null)
+                return book;
+        }
+        return null;
+    }
+
     public Book getBook(String titulo) {
         Book book;
         for (Sede sede : sedes) {
