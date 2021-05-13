@@ -31,12 +31,28 @@ public class Floor {
         return string;
     }
 
+    public String pure_toString() {
+        String string = "";
+        string += this.floor + ",\"";
+        return string;
+    }
+
     public String buscarTitulo(String titulo) {
         String book = "";
         for (Rack rack : racks) {
             book = rack.buscarTitulo(titulo);
             if (book != null)
                 return book += this.toString();
+        }
+        return null;
+    }
+
+    public String obtenerInfoCSV(String titulo) {
+        String book = "";
+        for (Rack rack : racks) {
+            book = rack.obtenerInfoCSV(titulo);
+            if (book != null)
+                return book += this.pure_toString();
         }
         return null;
     }
