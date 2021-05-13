@@ -16,6 +16,10 @@ public class Book {
 
     }
 
+    public String pure_toString() {
+        return "\"" + this.titulo + "\",\"" + this.autor + "\"," + this.anio + ",";
+    }    
+
     // ################ Getter&Setters ##############################
 
     public String getTitulo() {
