@@ -37,6 +37,16 @@ public class Rack {
         return null;
     }
 
+    public String obtenerInfoCSV(String titulo) {
+        String info = "";
+        for (Book book : books) {
+            if (titulo.equalsIgnoreCase(book.getTitulo())) {
+                return info += book.pure_toString() + this.pure_toString();
+            }
+        }
+        return null;
+    }    
+
     public Book getBook(String titulo) {
         for (Book book : books) {
             if (titulo.equalsIgnoreCase(book.getTitulo())) {
@@ -81,6 +91,12 @@ public class Rack {
         string += "Estante: " + this.eNumero + "\nSeccion: " + this.eSeccion + "\n";
         return string;
     }
+
+    public String pure_toString() {
+        String string = "";
+        string += this.eNumero + ",\"" + this.eSeccion + "\",";
+        return string;
+    }    
 
     // ################ Getter&Setters ##############################
 
