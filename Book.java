@@ -12,9 +12,13 @@ public class Book {
     }
 
     public String toString() {
-        return "Titulo: " + this.titulo + "\nautor: " + this.autor + "\naño: " + this.anio + "\n\n";
+        return "Titulo: " + this.titulo + "\nautor: " + this.autor + "\naño: " + this.anio + "\n";
 
     }
+
+    public String pure_toString() {
+        return "\"" + this.titulo + "\",\"" + this.autor + "\"," + this.anio + ",";
+    }    
 
     // ################ Getter&Setters ##############################
 

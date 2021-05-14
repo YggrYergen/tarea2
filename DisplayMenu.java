@@ -1,11 +1,13 @@
 import java.util.Scanner;
+import java.io.*;
 
 public class DisplayMenu {
 
-  public static void dispMenu(Biblioteca biblioteca) {
+  public static void dispMenu(Biblioteca biblioteca) throws IOException {
     Scanner input = new Scanner(System.in);
     boolean salir = false;
     int opcion_menu, opcion_submenu;
+    Book book;
     while (salir != true) {
       System.out.println("\n¡Bienvenido a la biblioteca UAI!\n");
       System.out.println("Eliga una de las siguientes opciones:\n");
@@ -23,9 +25,23 @@ public class DisplayMenu {
       opcion_menu = input.nextInt();
       switch (opcion_menu) {
         case 1: // Agregar libro
-          // Methods.agregarLibro(etc);
+          input.nextLine();
+          System.out.print("\033[H\033[2J");
+          System.out.println("\n[Agregar Libro]\n");
+          System.out.println("Ingrese la información del nuevo libro en formato CSV:\n");
+
+          String line = input.nextLine();
+          String[] user_add = Methods.splitLine(line);
+          biblioteca.addBook(user_add);
+
+          //////////////////
           break;
         case 2: // Editar libro
+          input.nextLine();
+          System.out.print("\033[H\033[2J");
+          System.out.println("\nIngresar Libro a editar:");
+          String titulo = input.nextLine();
+          System.out.print("\033[H\033[2J");
           System.out.println("Eliga una de las siguientes opciones:\n");
           System.out.println("[1] cambiar titulo.");
           System.out.println("[2] cambiar autor.");
@@ -35,18 +51,34 @@ public class DisplayMenu {
           System.out.println("[6] cambiar piso.");
           System.out.println("[7] cambiar edifico.");
           System.out.println("[8] cambiar sede.");
+          System.out.print("\nOpcion:  ");
           opcion_submenu = input.nextInt();
           switch (opcion_submenu) {
             case 1: // Cambiar titulo
-              // method.cambiarTitulo(etc)
+              input.nextLine();
+              book = biblioteca.getBook(titulo);
+              System.out.println("\nTitulo Actual: " + book.getTitulo());
+              System.out.print("\nNuevo titulo: ");
+              String newTitle = input.nextLine();
+              book.setTitulo(newTitle);
               break;
 
             case 2: // Cambiar autor
-              // method.cambiarAutor(etc)
+              input.nextLine();
+              book = biblioteca.getBook(titulo);
+              System.out.println("\nAutor actual: " + book.getAutor());
+              System.out.print("\nNuevo autor: ");
+              String newAutor = input.nextLine();
+              book.setAutor(newAutor);
               break;
 
             case 3: // Cambiar anio
-              // method.cambiarAnio(etc)
+              input.nextLine();
+              book = biblioteca.getBook(titulo);
+              System.out.println("\nAnio actual: " + book.getAnio());
+              System.out.print("\nNuevo anio: ");
+              int newAnio = input.nextInt();
+              book.setAnio(newAnio);
               break;
 
             case 4: // Cambiar estante_numero
@@ -75,9 +107,15 @@ public class DisplayMenu {
           input.nextLine();
           System.out.print("\033[H\033[2J");
           System.out.println("Ingresar Titulo a buscar:");
-          String titulo = input.nextLine();
-          // Book book = books.buscarTitulo(titulo);
-          // System.out.println(book.toString());
+          titulo = input.nextLine();
+          String bookInfo = biblioteca.buscarTitulo(titulo);
+          if (bookInfo != null) {
+            System.out.print("\033[H\033[2J");
+            System.out.println("\nLibro encontrado!\n");
+            System.out.println(bookInfo);
+            System.out.println(("\nPresione enter para continuar."));
+            input.nextLine();
+          }
           break;
 
         case 4: // Quitar libro
@@ -178,6 +216,8 @@ public class DisplayMenu {
         case 0: // Salir
           System.out.print("\033[H\033[2J");
           System.out.println("Guardando y saliendo...\n");
+          // Sistema de guardado //
+          Methods.writeCSV(biblioteca);
           salir = true;
           break;
       }
