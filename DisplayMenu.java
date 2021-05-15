@@ -134,10 +134,16 @@ public class DisplayMenu {
           switch (opcion_submenu) {
             case 1:
               // Methods.agregarSeccion(etc)
+              String line2 = input.nextLine();
+              String[] user_add2 = Methods.splitLine(line2);
+              biblioteca.addSeccion(user_add2);
               break;
 
             case 2:
               // Methods.quitarSeccion(etc)
+              String line3 = input.nextLine();
+              String[] user_add3 = Methods.splitLine(line3);
+              biblioteca.delSeccion(user_add3);
               break;
           }
           break;
@@ -151,10 +157,16 @@ public class DisplayMenu {
           switch (opcion_submenu) {
             case 1:
               // Methods.agregarEstante(etc)
+              String line2 = input.nextLine();
+              String[] user_add2 = Methods.splitLine(line2);
+              biblioteca.addRack(user_add2);
               break;
 
             case 2:
               // Methods.quitarEstante(etc)
+              String line3 = input.nextLine();
+              String[] user_add3 = Methods.splitLine(line3);
+              biblioteca.delRack(user_add3);
               break;
           }
 
@@ -169,10 +181,16 @@ public class DisplayMenu {
           switch (opcion_submenu) {
             case 1:
               // Methods.agregarPiso()
+              String line2 = input.nextLine();
+              String[] user_add2 = Methods.splitLine(line2);
+              biblioteca.addPiso(user_add2);
               break;
 
             case 2:
               // Methods.quitarPiso()
+              String line3 = input.nextLine();
+              String[] user_add3 = Methods.splitLine(line3);
+              biblioteca.delPiso(user_add3);
               break;
           }
 

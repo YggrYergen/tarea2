@@ -64,9 +64,62 @@ public class Biblioteca {
         return null;
     }
 
+    public void addSeccion(Seccion[] seccion) {
+        Seccion new_seccion = new Seccion(seccion[0], seccion[1]);
+        // Buscar
+        for (Floor floor : floors) {
+            if (seccion[2] == floor) {
+                new_edificio.addfloor(floor);
+            }
+        }
+
+        new_floor.addRack(new_seccion);
+        this.seccion.add(seccion);
+    }
+
+    public int delSeccion(Seccion seccion) {
+        // if vacio
+        for (Book book : books) {
+            if (book != null) {
+                return 0; // Error: hay libros aun
+            }
+
+        }
+        this.seccion.remove(seccion);
+    }
+
+    public void addPiso(Floor floor) {
+        Floor new_floor = new Floor(floor);
+        // Buscar
+        for (Edificio edificio : edificios) {
+            if (seccion[2] == edificio) {
+                new_sede.addEdificio(edificio);
+            }
+        }
+
+        new_edificio.addFloor(new_floor);
+        this.floor.add(floor);
+    }
+
+    public int delPiso(Floor floor) {
+        // if vacio
+        for (Book book : books) {
+            if (book != null) {
+                return 0; // Error: hay libros aun
+            }
+
+        }
+        this.floor.remove(floor);
+    }
+
     // ################ Getter&Setters ##############################
 
     public ArrayList<Sede> getSedes() {
         return this.sedes;
     }
+
+    public void setSedes(ArrayList<Sede> sedes) {
+        this.sedes = sedes;
+    }
+
 }

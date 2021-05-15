@@ -46,7 +46,7 @@ public class Sede {
         }
         return null;
     }
-    
+
     public String obtenerInfoCSV(String titulo) {
         String book = "";
         for (Edificio edificio : edificios) {
@@ -79,5 +79,9 @@ public class Sede {
 
     public ArrayList<Edificio> getEdificios() {
         return this.edificios;
+    }
+
+    public void setEdificios(ArrayList<Edificio> edificios) {
+        this.edificios = edificios;
     }
 }
