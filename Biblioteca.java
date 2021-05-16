@@ -35,8 +35,6 @@ public class Biblioteca {
     }
 
     public void moveBook(String[] address, Book book) {
-        Book book2 = book;
-        // Biblioteca.deleteBook(book);
         Rack new_rack = new Rack(Integer.valueOf(address[0]), address[1]);
         Floor new_floor = new Floor(Integer.valueOf(address[2]));
         Edificio new_edificio = new Edificio(address[3]);
@@ -46,7 +44,7 @@ public class Biblioteca {
         new_sede.addEdificio(new_edificio);
         new_edificio.addFloor(new_floor);
         new_floor.addRack(new_rack);
-        new_rack.addBook(book2);
+        new_rack.addBook(book);
 
     }
 

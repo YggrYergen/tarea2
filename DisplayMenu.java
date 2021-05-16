@@ -7,7 +7,7 @@ public class DisplayMenu {
     Scanner input = new Scanner(System.in);
     boolean salir = false;
     int opcion_menu, opcion_submenu, SEDE = 0, PISO = 1, SECCION = 2;
-    Book book;
+    Book book, book2;
     String line, aux = "";
     String[] ubicacion;
     while (salir != true) {
@@ -86,6 +86,8 @@ public class DisplayMenu {
               aux = "";
               aux = biblioteca.getUbicacion(titulo);
               ubicacion = Methods.splitLine(aux);
+              book2 = book;
+              Methods.deleteBook(biblioteca, titulo);
               System.out.println("\n   Ubicacion Actual\n");
               System.out.println("Piso: " + ubicacion[2] + "\nEdificio: " + ubicacion[3] + "\nSede: " + ubicacion[4]);
               System.out.println(("\nIngrese la informacion de la nueva ubicacion en el siguiente formato: "));
@@ -93,7 +95,14 @@ public class DisplayMenu {
               line = input.nextLine();
               line += "," + ubicacion[2] + "," + ubicacion[3] + "," + ubicacion[4];
               String[] newSeccion = Methods.splitLine(line);
-              biblioteca.moveBook(newSeccion, book);
+              biblioteca.moveBook(newSeccion, book2);
+              System.out.println(("\n    El libro se ha movido exitosamente."));
+              aux = biblioteca.getUbicacion(titulo);
+              ubicacion = Methods.splitLine(aux);
+              System.out.println("\n   Nueva Ubicacion\n");
+              System.out.println("Piso: " + ubicacion[2] + "\nEdificio: " + ubicacion[3] + "\nSede: " + ubicacion[4]);
+              System.out.println(("\nPresione enter para continuar."));
+              input.nextLine();
               break;
 
             case 5: // Cambiar Piso
@@ -102,6 +111,8 @@ public class DisplayMenu {
               aux = "";
               aux = biblioteca.getUbicacion(titulo);
               ubicacion = Methods.splitLine(aux);
+              book2 = book;
+              Methods.deleteBook(biblioteca, titulo);
               System.out.println("\n   Ubicacion Actual\n");
               System.out.println("Piso: " + ubicacion[2] + "\nEdificio: " + ubicacion[3] + "\nSede: " + ubicacion[4]);
               System.out.println(("\nIngrese la informacion de la nueva ubicacion en el siguiente formato: "));
@@ -109,7 +120,14 @@ public class DisplayMenu {
               line = input.nextLine();
               line += "," + ubicacion[3] + "," + ubicacion[4];
               String[] newPiso = Methods.splitLine(line);
-              biblioteca.moveBook(newPiso, book);
+              biblioteca.moveBook(newPiso, book2);
+              System.out.println(("\n    El libro se ha movido exitosamente."));
+              aux = biblioteca.getUbicacion(titulo);
+              ubicacion = Methods.splitLine(aux);
+              System.out.println("\n   Nueva Ubicacion\n");
+              System.out.println("Piso: " + ubicacion[2] + "\nEdificio: " + ubicacion[3] + "\nSede: " + ubicacion[4]);
+              System.out.println(("\nPresione enter para continuar."));
+              input.nextLine();
               break;
 
             case 6: // Cambiar Sede
@@ -118,13 +136,22 @@ public class DisplayMenu {
               aux = "";
               aux = biblioteca.getUbicacion(titulo);
               ubicacion = Methods.splitLine(aux);
+              book2 = book;
+              Methods.deleteBook(biblioteca, titulo);
               System.out.println("\n   Ubicacion Actual\n");
               System.out.println("Piso: " + ubicacion[2] + "\nEdificio: " + ubicacion[3] + "\nSede: " + ubicacion[4]);
               System.out.println(("\nIngrese la informacion de la nueva ubicacion en el siguiente formato: "));
               System.out.println("(Numero del estante, nombre de la seccion, Piso, edificio, sede)\n");
               line = input.nextLine();
               String[] newSede = Methods.splitLine(line);
-              biblioteca.moveBook(newSede, book);
+              biblioteca.moveBook(newSede, book2);
+              System.out.println(("\n    El libro se ha movido exitosamente."));
+              aux = biblioteca.getUbicacion(titulo);
+              ubicacion = Methods.splitLine(aux);
+              System.out.println("\n   Nueva Ubicacion\n");
+              System.out.println("Piso: " + ubicacion[2] + "\nEdificio: " + ubicacion[3] + "\nSede: " + ubicacion[4]);
+              System.out.println(("\nPresione enter para continuar."));
+              input.nextLine();
               break;
           }
           break;
