@@ -4,6 +4,7 @@ public class Methods {
 
     public static void readCsv(String args, Biblioteca biblioteca) {
         String path = System.getProperty("user.dir") + "/" + args;
+
         String line = "";
         int firstLine = 0;
 
@@ -42,58 +43,56 @@ public class Methods {
         String path = System.getProperty("user.dir") + "/" + args;
         for (int i = 0; i < biblioteca.sedes.size(); i++) {
             try {
-            // Escribir el header del CSV
-            if (i == 0) {
-                PrintWriter writer = new PrintWriter(new FileReader(path));
-                writer.write("titulo,autor,anio,estante_numero,estante_seccion,piso,edificio,sede");
-                writer.append("\n");
+                // Escribir el header del CSV
+                if (i == 0) {
+                    PrintWriter writer = new PrintWriter(path);
+                    writer.write("titulo,autor,anio,estante_numero,estante_seccion,piso,edificio,sede");
+                    writer.append("\n");
+                    writer.close();
+                }
+
+                // Checks si array esta vacío (no contiene libro)
+                if ((biblioteca.sedes.get(i).getEdificios().isEmpty() == true)
+                        || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().isEmpty() == true)
+                        || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks()
+                                .isEmpty() == true)) {
+                    continue;
+                }
+
+                // Título del libro para obtener toda su información en formato CSV mediante
+                // .obtenerInfoCSV()
+
+                String str_tit = biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().get(0)
+                        .getBooks().get(0).getTitulo();
+                String bookCSV = biblioteca.obtenerInfoCSV(str_tit);
+
+                // String bookCSV = biblioteca.obtenerInfoCSV(str_tit);
+
+                // Escribir toda la información en el archivo
+                BufferedWriter writer = new BufferedWriter(new FileWriter(path, true));
+                writer.append(bookCSV);
+
+                if (i != (biblioteca.sedes.size() - 1)) {
+                    writer.append("\n");
+                }
                 writer.close();
+            } catch (IndexOutOfBoundsException e) {
             }
-
-            // Checks si array esta vacío (no contiene libro)
-            if ((biblioteca.sedes.get(i).getEdificios().isEmpty() == true)
-                    || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().isEmpty() == true)
-                    || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks()
-                            .isEmpty() == true)) {
-                continue;
-            }
-
-            // Título del libro para obtener toda su información en formato CSV mediante
-            // .obtenerInfoCSV()
-
-            String str_tit = biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().get(0).getBooks().get(0).getTitulo();
-            String bookCSV = biblioteca.obtenerInfoCSV(str_tit);
-
-
-            //String bookCSV = biblioteca.obtenerInfoCSV(str_tit);
-
-            // Escribir toda la información en el archivo
-            BufferedWriter writer = new BufferedWriter(new FileWriter(new FileReader(path), true));
-            writer.append(bookCSV);
-          
-            
- 
-
-            if (i != (biblioteca.sedes.size() - 1)) {
-                writer.append("\n");
-            }
-            writer.close();
-            }
-            catch (IndexOutOfBoundsException e) {} 
         }
     }
 
     public static void deleteBook(Biblioteca biblioteca, String titulo) {
-      for (int i = 0; i < biblioteca.sedes.size(); i++) {
-        if (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().get(0).getBooks().get(0).getTitulo().equals(titulo)) {
-          try {
-            biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().get(0).getBooks().remove(0);
-          }
-          catch (IndexOutOfBoundsException e) {
-            // Hacer nada ._.
-          }
+        for (int i = 0; i < biblioteca.sedes.size(); i++) {
+            if (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().get(0).getBooks().get(0)
+                    .getTitulo().equals(titulo)) {
+                try {
+                    biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().get(0).getBooks()
+                            .remove(0);
+                } catch (IndexOutOfBoundsException e) {
+                    // Hacer nada ._.
+                }
+            }
         }
-      }
     }
 
     public static String[] splitLine(String line) {
