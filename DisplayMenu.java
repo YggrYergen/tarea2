@@ -231,12 +231,32 @@ public class DisplayMenu {
           System.out.print("\nOpcion:  ");
           opcion_submenu = input.nextInt();
           switch (opcion_submenu) {
-            case 1:
-              // Methods.agregarSede();
+            case 1: // Agregar sede
+              System.out.print("\033[H\033[2J");
+              System.out.print("\nIngrese el nombre de la sede que desea agregar.");
+              System.out.print("\nNueva sede:  ");
+              Sede nuevaSede = new Sede(input.nextLine());
+              biblioteca.addSede(nuevaSede);
               break;
 
-            case 2:
-              // Methods.quitarSede();
+            case 2: // Quitar sede
+              System.out.print("\033[H\033[2J");
+              System.out.print("\nIngrese el nombre de la sede que desea quitar.");
+              System.out.print("\nSede a quitar:  ");
+              Sede viejaSede = new Sede(input.nextLine());
+              for (Sede sede : biblioteca.sedes) {
+                if(sede.pure_toString() == viejaSede.pure_toString()) {
+                  if(sede.edificios != null){
+                    System.out.println("La sede que desea borrar no esta vacia!");
+                    break;
+                  } else {
+                    sede = null;
+                    System.out.println("Sede borrada.");
+                    break;
+                  }
+                }
+              }
+              System.out.println("No hay una sede llamada: " + viejaSede.pure_toString());
               break;
           }
 

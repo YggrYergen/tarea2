@@ -2,8 +2,8 @@ Leer csv                                                    Rorro
 
 Menu:                                                       
     Sedes:                                                  
-        Agregar Sede - Pauta                                Tomas    
-        Quitar Sede - Pauta                                 Tomas
+        Agregar Sede - Pauta                                Tomas - Listo
+        Quitar Sede - Pauta                                 Tomas - Listo
 
         Pisos:                                          
             Agregar Piso - Pauta                            Seba
@@ -22,7 +22,7 @@ Menu:
                             Cambiar eSeccion - Pauta        Cata
                             Cambiar Piso - Pauta            Cata
                             Cambiar Sede - Pauta            Cata
-                        Buscar libro - Pauta                Tomas
+                        Buscar libro - Pauta                Tomas - Listo
                         Quitar libro - Pauta                Esteban
 
 Guardar                                                     Esteban
