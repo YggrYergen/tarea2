@@ -47,6 +47,16 @@ public class Sede {
         return null;
     }
 
+    public String getUbicacion(String titulo) {
+        String info = "";
+        for (Edificio edificio : edificios) {
+            info = edificio.obtenerInfoCSV(titulo);
+            if (info != null)
+                return info += ", " + this.sede;
+        }
+        return null;
+    }
+
     public String obtenerInfoCSV(String titulo) {
         String book = "";
         for (Edificio edificio : edificios) {
@@ -67,13 +77,38 @@ public class Sede {
         return null;
     }
 
-    public int delSeccion(String[] seccion) {
+    public int delete(String[] seccion, int opcion) {
         int i = 0;
-        for (Edificio edificio : edificios) {
-            if (edificio.getEdificio().equals(seccion[3])) {
-                i = edificio.delSeccion(seccion);
+        // 0 = SEDE, 1= PISO, 2 = SECCION
+        if (opcion == 0) {
+            // if vacio
+            for (Edificio edificio : edificios) {
+                i = edificio.delete(seccion, opcion);
+                if (i == 1)
+                    return i;
             }
+            return i;
+        }
 
+        if (opcion == 1) {
+            // if vacio
+            for (Edificio edificio : edificios) {
+                if (edificio.getEdificio().equals(seccion[1])) {
+                    i = edificio.delete(seccion, opcion);
+                }
+
+            }
+            return i;
+        }
+        if (opcion == 2) {
+            // if vacio
+            for (Edificio edificio : edificios) {
+                if (edificio.getEdificio().equals(seccion[3])) {
+                    i = edificio.delete(seccion, opcion);
+                }
+
+            }
+            return i;
         }
         return i;
     }

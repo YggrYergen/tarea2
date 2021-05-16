@@ -44,6 +44,16 @@ public class Biblioteca {
         return null;
     }
 
+    public String getUbicacion(String titulo) {
+        String book = "";
+        for (Sede sede : sedes) {
+            book = sede.getUbicacion(titulo);
+            if (book != null)
+                return book;
+        }
+        return null;
+    }
+
     public String obtenerInfoCSV(String titulo) {
         String book = "";
         for (Sede sede : sedes) {
@@ -64,6 +74,22 @@ public class Biblioteca {
         return null;
     }
 
+    public void moveBook(String[] address, Book book) {
+        Book book2 = book;
+        // Biblioteca.deleteBook(book);
+        Rack new_rack = new Rack(Integer.valueOf(address[0]), address[1]);
+        Floor new_floor = new Floor(Integer.valueOf(address[2]));
+        Edificio new_edificio = new Edificio(address[3]);
+        Sede new_sede = new Sede(address[4]);
+
+        this.addSede(new_sede);
+        new_sede.addEdificio(new_edificio);
+        new_edificio.addFloor(new_floor);
+        new_floor.addRack(new_rack);
+        new_rack.addBook(book2);
+
+    }
+
     public void addSeccion(String[] seccion) {
         Rack new_rack = new Rack(Integer.valueOf(seccion[0]), seccion[1]);
         Floor new_floor = new Floor(Integer.valueOf(seccion[2]));
@@ -76,13 +102,38 @@ public class Biblioteca {
         new_floor.addRack(new_rack);
     }
 
-    public int delSeccion(String[] seccion) {
+    public int delete(String[] seccion, int opcion) {
         int i = 0;
-        // if vacio
-        for (Sede sede : sedes) {
-            if (sede.getSede().equals(seccion[4])) {
-                i = sede.delSeccion(seccion);
+        // 0 = SEDE, 1 = PISO, 2 = SECCION
+        if (opcion == 0) {
+            // if vacio
+            for (Sede sede : sedes) {
+                if (sede.getSede().equals(seccion[0])) {
+                    i = sede.delete(seccion, opcion);
+                }
+                if (i == 0) {
+                    sedes.remove(sede);
+                }
             }
+            return i;
+        }
+        if (opcion == 1) {
+            // if vacio
+            for (Sede sede : sedes) {
+                if (sede.getSede().equals(seccion[2])) {
+                    i = sede.delete(seccion, opcion);
+                }
+            }
+            return i;
+        }
+        if (opcion == 2) {
+            // if vacio
+            for (Sede sede : sedes) {
+                if (sede.getSede().equals(seccion[4])) {
+                    i = sede.delete(seccion, opcion);
+                }
+            }
+            return i;
         }
         return i;
     }

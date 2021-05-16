@@ -21,36 +21,22 @@ public class Floor {
             this.racks.add(rack);
     }
 
-    public int delSeccion(String[] seccion) {
-        for (Rack rack : racks) {
-            if (rack.getESeccion().equals(seccion[1]) && rack.getENumero() == Integer.valueOf(seccion[0])) {
-                if (rack.getBooks() != null) {
-                    return 1;
-                }
-                racks.remove(rack);
-            }
-        }
-        return 0;
-    }
-
-    public String toString() {
-        String string = "";
-        string += "Piso: " + this.floor + "\n";
-        return string;
-    }
-
-    public String pure_toString() {
-        String string = "";
-        string += this.floor + ",\"";
-        return string;
-    }
-
     public String buscarTitulo(String titulo) {
         String book = "";
         for (Rack rack : racks) {
             book = rack.buscarTitulo(titulo);
             if (book != null)
                 return book += this.toString();
+        }
+        return null;
+    }
+
+    public String getUbicacion(String titulo) {
+        String info = "";
+        for (Rack rack : racks) {
+            info = rack.obtenerInfoCSV(titulo);
+            if (info != null)
+                return info += ", " + this.floor;
         }
         return null;
     }
@@ -73,6 +59,57 @@ public class Floor {
                 return book;
         }
         return null;
+    }
+
+    public int delete(String[] seccion) {
+        for (Rack rack : racks) {
+            if (rack.getESeccion().equals(seccion[1]) && rack.getENumero() == Integer.valueOf(seccion[0])) {
+                if (rack.getBooks() != null) {
+                    return 1;
+                }
+                racks.remove(rack);
+            }
+        }
+        return 0;
+    }
+
+    public int delete(String[] seccion, int opcion) {
+        int i = 0;
+        // 0 = SEDE, 1= PISO, 2 = SECCION
+        if (opcion != 2) {
+            for (Rack rack : racks) {
+                if (rack.getESeccion().equals(seccion[1]) && rack.getENumero() == Integer.valueOf(seccion[0])) {
+                    if (rack.getBooks() != null) {
+                        return 1;
+                    }
+                }
+            }
+            return 0;
+        }
+        if (opcion == 2) {
+            for (Rack rack : racks) {
+                if (rack.getESeccion().equals(seccion[1]) && rack.getENumero() == Integer.valueOf(seccion[0])) {
+                    if (rack.getBooks() != null) {
+                        return 1;
+                    }
+                    racks.remove(rack);
+                }
+            }
+            return 0;
+        }
+        return i;
+    }
+
+    public String toString() {
+        String string = "";
+        string += "Piso: " + this.floor + "\n";
+        return string;
+    }
+
+    public String pure_toString() {
+        String string = "";
+        string += this.floor + ",\"";
+        return string;
     }
 
     // ################ Getter&Setters ##############################
