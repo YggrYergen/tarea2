@@ -55,6 +55,16 @@ public class Floor {
         return null;
     }
 
+    public String getUbicacion(String titulo) {
+        String info = "";
+        for (Rack rack : racks) {
+            info = rack.obtenerInfoCSV(titulo);
+            if (info != null)
+                return info += ", " + this.floor;
+        }
+        return null;
+    }
+
     public String obtenerInfoCSV(String titulo) {
         String book = "";
         for (Rack rack : racks) {

@@ -47,6 +47,16 @@ public class Sede {
         return null;
     }
 
+    public String getUbicacion(String titulo) {
+        String info = "";
+        for (Edificio edificio : edificios) {
+            info = edificio.obtenerInfoCSV(titulo);
+            if (info != null)
+                return info += ", " + this.sede;
+        }
+        return null;
+    }
+
     public String obtenerInfoCSV(String titulo) {
         String book = "";
         for (Edificio edificio : edificios) {

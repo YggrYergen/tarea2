@@ -44,6 +44,16 @@ public class Biblioteca {
         return null;
     }
 
+    public String getUbicacion(String titulo) {
+        String book = "";
+        for (Sede sede : sedes) {
+            book = sede.getUbicacion(titulo);
+            if (book != null)
+                return book;
+        }
+        return null;
+    }
+
     public String obtenerInfoCSV(String titulo) {
         String book = "";
         for (Sede sede : sedes) {
@@ -62,6 +72,22 @@ public class Biblioteca {
                 return book;
         }
         return null;
+    }
+
+    public void moveBook(String[] address, Book book) {
+        Book book2 = book;
+        // Biblioteca.deleteBook(book);
+        Rack new_rack = new Rack(Integer.valueOf(address[0]), address[1]);
+        Floor new_floor = new Floor(Integer.valueOf(address[2]));
+        Edificio new_edificio = new Edificio(address[3]);
+        Sede new_sede = new Sede(address[4]);
+
+        this.addSede(new_sede);
+        new_sede.addEdificio(new_edificio);
+        new_edificio.addFloor(new_floor);
+        new_floor.addRack(new_rack);
+        new_rack.addBook(book2);
+
     }
 
     public void addSeccion(String[] seccion) {

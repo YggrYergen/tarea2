@@ -36,6 +36,16 @@ public class Rack {
         return null;
     }
 
+    public String getUbicacion(String titulo) {
+        String info = "";
+        for (Book book : books) {
+            if (titulo.equalsIgnoreCase(book.getTitulo())) {
+                return info += this.eNumero + ", " + this.eSeccion;
+            }
+        }
+        return null;
+    }
+
     public String obtenerInfoCSV(String titulo) {
         String info = "";
         for (Book book : books) {
