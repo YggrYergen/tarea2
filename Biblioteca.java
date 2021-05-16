@@ -148,30 +148,6 @@ public class Biblioteca {
         new_edificio.addFloor(new_floor);
     }
 
-    public int delPiso(String[] piso) {
-        int i = 0;
-        // if vacio
-        for (Sede sede : sedes) {
-            if (sede.getSede().equals(piso[2])) {
-                i = sede.delSeccion(piso);
-            }
-        }
-        return i;
-    }
-
-    /*
-     * public void addPiso(Floor floor) { Floor new_floor = new Floor(floor); //
-     * Buscar for (Edificio edificio : edificios) { if (seccion[2] == edificio) {
-     * new_sede.addEdificio(edificio); } }
-     * 
-     * new_edificio.addFloor(new_floor); this.floor.add(floor); }
-     * 
-     * public int delPiso(Floor floor) { // if vacio for (Book book : books) { if
-     * (book != null) { return 0; // Error: hay libros aun }
-     * 
-     * } this.floor.remove(floor); }
-     */
-
     // ################ Getter&Setters ##############################
 
     public ArrayList<Sede> getSedes() {
