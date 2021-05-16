@@ -149,8 +149,8 @@ public class DisplayMenu {
           System.out.print("\033[H\033[2J");
           System.out.println("Ingresar Titulo a Eliminar:");
           titulo = input.nextLine();
-          book = biblioteca.getBook(titulo);
-          biblioteca.deleteBook(book);
+          String del_titulo = input.nextLine();
+          Methods.deleteBook(biblioteca, del_titulo);
           System.out.println("\n    LIbro Eliminado Exitosamente.");
           System.out.println(("\nPresione enter para continuar."));
           input.nextLine();
