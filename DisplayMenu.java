@@ -223,6 +223,7 @@ public class DisplayMenu {
           }
 
           break;
+
         case 7: // Agregar o quitar sede
           System.out.print("\033[H\033[2J");
           System.out.println("Eliga una de las siguientes opciones:\n");
