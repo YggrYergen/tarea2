@@ -40,7 +40,7 @@ public class Methods {
 
     public static void writeCSV(Biblioteca biblioteca) throws IOException {
         for (int i = 0; i < biblioteca.sedes.size(); i++) {
-
+            try {
             // Escribir el header del CSV
             if (i == 0) {
                 PrintWriter writer = new PrintWriter("biblioteca2.csv");
@@ -59,20 +59,40 @@ public class Methods {
 
             // Título del libro para obtener toda su información en formato CSV mediante
             // .obtenerInfoCSV()
-            String str_tit = biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().get(0)
-                    .getBooks().get(0).getTitulo();
 
+            String str_tit = biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().get(0).getBooks().get(0).getTitulo();
             String bookCSV = biblioteca.obtenerInfoCSV(str_tit);
+
+
+            //String bookCSV = biblioteca.obtenerInfoCSV(str_tit);
 
             // Escribir toda la información en el archivo
             BufferedWriter writer = new BufferedWriter(new FileWriter("biblioteca2.csv", true));
             writer.append(bookCSV);
+          
+            
+ 
 
             if (i != (biblioteca.sedes.size() - 1)) {
                 writer.append("\n");
             }
             writer.close();
+            }
+            catch (IndexOutOfBoundsException e) {} 
         }
+    }
+
+    public static void deleteBook(Biblioteca biblioteca, String titulo) {
+      for (int i = 0; i < biblioteca.sedes.size(); i++) {
+        if (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().get(0).getBooks().get(0).getTitulo().equals(titulo)) {
+          try {
+            biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().get(0).getBooks().remove(0);
+          }
+          catch (IndexOutOfBoundsException e) {
+            // Hacer nada ._.
+          }
+        }
+      }
     }
 
     public static String[] splitLine(String line) {
