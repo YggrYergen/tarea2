@@ -9,6 +9,7 @@ public class DisplayMenu {
     int opcion_menu, opcion_submenu;
     Book book;
     while (salir != true) {
+      System.out.print("\033[H\033[2J");
       System.out.println("\n¡Bienvenido a la biblioteca UAI!\n");
       System.out.println("Eliga una de las siguientes opciones:\n");
       System.out.println("[1] Agregar libro.");
@@ -16,10 +17,9 @@ public class DisplayMenu {
       System.out.println("[3] Buscar libro.");
       System.out.println("[4] Quitar libro.");
       System.out.println("[5] Agregar o quitar seccion.");
-      System.out.println("[6] Agregar o quitar estante.");
-      System.out.println("[7] Agregar o quitar piso.");
-      System.out.println("[8] Agregar o quitar edificio.");
-      System.out.println("[9] Agregar o quitar sede.");
+      System.out.println("[6] Agregar o quitar piso.");
+      System.out.println("[7] Agregar o quitar edificio.");
+      System.out.println("[8] Agregar o quitar sede.");
       System.out.println("[0] Salir.");
       System.out.print("\nOpcion:  ");
       opcion_menu = input.nextInt();
@@ -134,44 +134,36 @@ public class DisplayMenu {
           switch (opcion_submenu) {
             case 1:
               // Methods.agregarSeccion(etc)
+              input.nextLine();
+              System.out.println(("\nIngrese la informacion de la nueva seccion en el siguiente formato: "));
+              System.out.println("(Numero del estante, nombre de la seccion, Piso, edificio, sede)\n");
               String line2 = input.nextLine();
-              String[] user_add2 = Methods.splitLine(line2);
-              biblioteca.addSeccion(user_add2);
+              String[] newRack = Methods.splitLine(line2);
+              biblioteca.addSeccion(newRack);
               break;
 
             case 2:
               // Methods.quitarSeccion(etc)
+              input.nextLine();
+              System.out.println(("\nIngrese la informacion de la seccion a eliminar en el siguiente formato: "));
+              System.out.println("(numero del estate, nombre de la seccion, Piso, edificio, sede)\n");
               String line3 = input.nextLine();
-              String[] user_add3 = Methods.splitLine(line3);
-              biblioteca.delSeccion(user_add3);
+              String[] delRack = Methods.splitLine(line3);
+              int i = biblioteca.delSeccion(delRack);
+              if (i == 1) {
+                System.out.println("\nAun existen libros en esta seccion, por favor eliminelos.");
+                System.out.println(("\nPresione enter para continuar."));
+                input.nextLine();
+              } else {
+                System.out.println("\nSeccion eliminada exitosamente.");
+                System.out.println(("\nPresione enter para continuar."));
+                input.nextLine();
+              }
               break;
           }
           break;
-        case 6: // Agregar o quitar estante
-          System.out.print("\033[H\033[2J");
-          System.out.println("Eliga una de las siguientes opciones:\n");
-          System.out.println("\n[1] Agregar estante.");
-          System.out.println("[2] Quitar estante.");
-          System.out.print("\nOpcion:  ");
-          opcion_submenu = input.nextInt();
-          switch (opcion_submenu) {
-            case 1:
-              // Methods.agregarEstante(etc)
-              String line2 = input.nextLine();
-              String[] user_add2 = Methods.splitLine(line2);
-              biblioteca.addRack(user_add2);
-              break;
 
-            case 2:
-              // Methods.quitarEstante(etc)
-              String line3 = input.nextLine();
-              String[] user_add3 = Methods.splitLine(line3);
-              biblioteca.delRack(user_add3);
-              break;
-          }
-
-          break;
-        case 7: // Agregar o quitar piso
+        case 6: // Agregar o quitar piso
           System.out.print("\033[H\033[2J");
           System.out.println("Eliga una de las siguientes opciones:\n");
           System.out.println("\n[1] Agregar piso.");
@@ -181,21 +173,21 @@ public class DisplayMenu {
           switch (opcion_submenu) {
             case 1:
               // Methods.agregarPiso()
-              String line2 = input.nextLine();
-              String[] user_add2 = Methods.splitLine(line2);
-              biblioteca.addPiso(user_add2);
+              // String line2 = input.nextLine();
+              // String[] user_add2 = Methods.splitLine(line2);
+              // biblioteca.addPiso(user_add2);
               break;
 
             case 2:
               // Methods.quitarPiso()
-              String line3 = input.nextLine();
-              String[] user_add3 = Methods.splitLine(line3);
-              biblioteca.delPiso(user_add3);
+              // String line3 = input.nextLine();
+              // String[] user_add3 = Methods.splitLine(line3);
+              // biblioteca.delPiso(user_add3);
               break;
           }
 
           break;
-        case 8: // Agregar o quitar edificio
+        case 7: // Agregar o quitar edificio
           System.out.print("\033[H\033[2J");
           System.out.println("Eliga una de las siguientes opciones:\n");
           System.out.println("\nI[1] Agregar edificio.");
@@ -213,7 +205,7 @@ public class DisplayMenu {
           }
 
           break;
-        case 9: // Agregar o quitar sede
+        case 8: // Agregar o quitar sede
           System.out.print("\033[H\033[2J");
           System.out.println("Eliga una de las siguientes opciones:\n");
           System.out.println("\n[1] Agregar sede.");

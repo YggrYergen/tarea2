@@ -1,5 +1,4 @@
 import java.io.IOException;
-import java.text.Bidi;
 
 public class App2 {
 

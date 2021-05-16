@@ -67,6 +67,17 @@ public class Edificio {
         return string;
     }
 
+    public int delSeccion(String[] seccion) {
+        int i = 0;
+        for (Floor floor : floors) {
+            if (floor.getFloor() == Integer.valueOf(seccion[2])) {
+                i = floor.delSeccion(seccion);
+            }
+
+        }
+        return i;
+    }
+
     // ################ Getter&Setters ##############################
 
     public String getEdificio() {

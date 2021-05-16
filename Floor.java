@@ -21,8 +21,16 @@ public class Floor {
             this.racks.add(rack);
     }
 
-    public void removeRack(Rack rack) {
-        this.racks.remove(rack);
+    public int delSeccion(String[] seccion) {
+        for (Rack rack : racks) {
+            if (rack.getESeccion().equals(seccion[1]) && rack.getENumero() == Integer.valueOf(seccion[0])) {
+                if (rack.getBooks() != null) {
+                    return 1;
+                }
+                racks.remove(rack);
+            }
+        }
+        return 0;
     }
 
     public String toString() {
