@@ -307,7 +307,6 @@ public class DisplayMenu {
           System.out.print("\033[H\033[2J");
           System.out.println("Guardando y saliendo...\n");
           // Sistema de guardado //
-          Methods.writeCSV(biblioteca);
           salir = true;
           break;
       }
