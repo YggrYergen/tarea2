@@ -254,7 +254,7 @@ public class DisplayMenu {
               input.nextLine();
               System.out.print("\033[H\033[2J");
               System.out.println(("\nIngrese la informacion del piso a eliminar en el siguiente formato: "));
-              System.out.println("Piso, edificio, sede\n");
+              System.out.println("(Piso, edificio, sede)\n");
               String line3 = input.nextLine();
               String[] delFloor = Methods.splitLine(line3);
               int i = biblioteca.delete(delFloor, PISO);
@@ -286,8 +286,7 @@ public class DisplayMenu {
               System.out.println("\033[H\033[2J");
               System.out.println("\nIngrese el nombre de la sede que desea agregar.");
               System.out.print("\nNueva sede:  ");
-              String nombreSede = input.nextLine();
-              Sede newSede = new Sede(nombreSede);
+              Sede newSede = new Sede(input.nextLine());
               biblioteca.addSede(newSede);
               break;
 
