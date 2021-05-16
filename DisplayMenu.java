@@ -168,6 +168,11 @@ public class DisplayMenu {
             System.out.println(bookInfo);
             System.out.println(("\nPresione enter para continuar."));
             input.nextLine();
+          } else {
+            System.out.print("\033[H\033[2J");
+            System.out.println("El libro \"" + titulo + "\" no se encuentra en la Biblioteca");
+            System.out.println(("\nPresione enter para continuar."));
+            input.nextLine();
           }
           break;
 
