@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Sede {
-    protected String sede;
+    private String sede;
     public ArrayList<Edificio> edificios;
 
     public Sede(String sede) {
@@ -67,6 +67,17 @@ public class Sede {
         return null;
     }
 
+    public int delSeccion(String[] seccion) {
+        int i = 0;
+        for (Edificio edificio : edificios) {
+            if (edificio.getEdificio().equals(seccion[3])) {
+                i = edificio.delSeccion(seccion);
+            }
+
+        }
+        return i;
+    }
+
     // ################ Getter&Setters ##############################
 
     public String getSede() {
@@ -79,9 +90,5 @@ public class Sede {
 
     public ArrayList<Edificio> getEdificios() {
         return this.edificios;
-    }
-
-    public void setEdificios(ArrayList<Edificio> edificios) {
-        this.edificios = edificios;
     }
 }

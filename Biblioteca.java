@@ -64,53 +64,41 @@ public class Biblioteca {
         return null;
     }
 
-    public void addSeccion(Seccion[] seccion) {
-        Seccion new_seccion = new Seccion(seccion[0], seccion[1]);
-        // Buscar
-        for (Floor floor : floors) {
-            if (seccion[2] == floor) {
-                new_edificio.addfloor(floor);
-            }
-        }
+    public void addSeccion(String[] seccion) {
+        Rack new_rack = new Rack(Integer.valueOf(seccion[0]), seccion[1]);
+        Floor new_floor = new Floor(Integer.valueOf(seccion[2]));
+        Edificio new_edificio = new Edificio(seccion[3]);
+        Sede new_sede = new Sede(seccion[4]);
 
-        new_floor.addRack(new_seccion);
-        this.seccion.add(seccion);
-    }
-
-    public int delSeccion(Seccion seccion) {
-        // if vacio
-        for (Book book : books) {
-            if (book != null) {
-                return 0; // Error: hay libros aun
-            }
-
-        }
-        this.seccion.remove(seccion);
-    }
-
-    public void addPiso(Floor floor) {
-        Floor new_floor = new Floor(floor);
-        // Buscar
-        for (Edificio edificio : edificios) {
-            if (seccion[2] == edificio) {
-                new_sede.addEdificio(edificio);
-            }
-        }
-
+        this.addSede(new_sede);
+        new_sede.addEdificio(new_edificio);
         new_edificio.addFloor(new_floor);
-        this.floor.add(floor);
+        new_floor.addRack(new_rack);
     }
 
-    public int delPiso(Floor floor) {
+    public int delSeccion(String[] seccion) {
+        int i = 0;
         // if vacio
-        for (Book book : books) {
-            if (book != null) {
-                return 0; // Error: hay libros aun
+        for (Sede sede : sedes) {
+            if (sede.getSede().equals(seccion[4])) {
+                i = sede.delSeccion(seccion);
             }
-
         }
-        this.floor.remove(floor);
+        return i;
     }
+
+    /*
+     * public void addPiso(Floor floor) { Floor new_floor = new Floor(floor); //
+     * Buscar for (Edificio edificio : edificios) { if (seccion[2] == edificio) {
+     * new_sede.addEdificio(edificio); } }
+     * 
+     * new_edificio.addFloor(new_floor); this.floor.add(floor); }
+     * 
+     * public int delPiso(Floor floor) { // if vacio for (Book book : books) { if
+     * (book != null) { return 0; // Error: hay libros aun }
+     * 
+     * } this.floor.remove(floor); }
+     */
 
     // ################ Getter&Setters ##############################
 
