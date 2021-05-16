@@ -25,16 +25,14 @@ public class Sede {
         this.edificios.remove(edificio);
     }
 
-    public String toString() {
-        String string = "";
-        string += "Sede: " + this.sede + "\n\n";
-        return string;
-    }
-
-    public String pure_toString() {
-        String string = "";
-        string += this.sede + "\"";
-        return string;
+    public Book getBook(String titulo) {
+        Book book;
+        for (Edificio edificio : edificios) {
+            book = edificio.getBook(titulo);
+            if (book != null)
+                return book;
+        }
+        return null;
     }
 
     public String buscarTitulo(String titulo) {
@@ -63,16 +61,6 @@ public class Sede {
             book = edificio.obtenerInfoCSV(titulo);
             if (book != null)
                 return book += this.pure_toString();
-        }
-        return null;
-    }
-
-    public Book getBook(String titulo) {
-        Book book;
-        for (Edificio edificio : edificios) {
-            book = edificio.getBook(titulo);
-            if (book != null)
-                return book;
         }
         return null;
     }
@@ -111,6 +99,18 @@ public class Sede {
             return i;
         }
         return i;
+    }
+
+    public String toString() {
+        String string = "";
+        string += "Sede: " + this.sede + "\n\n";
+        return string;
+    }
+
+    public String pure_toString() {
+        String string = "";
+        string += this.sede + "\"";
+        return string;
     }
 
     // ################ Getter&Setters ##############################

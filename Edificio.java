@@ -21,8 +21,14 @@ public class Edificio {
             this.floors.add(floor);
     }
 
-    public void removeFloor(Floor floor) {
-        this.floors.remove(floor);
+    public Book getBook(String titulo) {
+        Book book;
+        for (Floor floor : floors) {
+            book = floor.getBook(titulo);
+            if (book != null)
+                return book;
+        }
+        return null;
     }
 
     public String buscarTitulo(String titulo) {
@@ -55,28 +61,6 @@ public class Edificio {
         return null;
     }
 
-    public Book getBook(String titulo) {
-        Book book;
-        for (Floor floor : floors) {
-            book = floor.getBook(titulo);
-            if (book != null)
-                return book;
-        }
-        return null;
-    }
-
-    public String toString() {
-        String string = "";
-        string += "Edificio: " + this.edificio + "\n";
-        return string;
-    }
-
-    public String pure_toString() {
-        String string = "";
-        string += this.edificio + "\",\"";
-        return string;
-    }
-
     public int delete(String[] seccion, int opcion) {
         int i = 0;
         // 0 = SEDE, 1= PISO, 2 = SECCION
@@ -94,7 +78,7 @@ public class Edificio {
             for (Floor floor : floors) {
                 i = floor.delete(seccion, opcion);
                 if (i == 0)
-                    floors.remove(floor);
+                    this.floors.remove(floor);
             }
             return i;
         }
@@ -109,6 +93,18 @@ public class Edificio {
             return i;
         }
         return i;
+    }
+
+    public String toString() {
+        String string = "";
+        string += "Edificio: " + this.edificio + "\n";
+        return string;
+    }
+
+    public String pure_toString() {
+        String string = "";
+        string += this.edificio + "\",\"";
+        return string;
     }
 
     // ################ Getter&Setters ##############################

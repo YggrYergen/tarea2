@@ -30,8 +30,30 @@ public class Biblioteca {
         new_rack.addBook(new_book);
     }
 
-    public void removeSede(Sede sede) {
-        this.sedes.remove(sede);
+    public void moveBook(String[] address, Book book) {
+        Book book2 = book;
+        // Biblioteca.deleteBook(book);
+        Rack new_rack = new Rack(Integer.valueOf(address[0]), address[1]);
+        Floor new_floor = new Floor(Integer.valueOf(address[2]));
+        Edificio new_edificio = new Edificio(address[3]);
+        Sede new_sede = new Sede(address[4]);
+
+        this.addSede(new_sede);
+        new_sede.addEdificio(new_edificio);
+        new_edificio.addFloor(new_floor);
+        new_floor.addRack(new_rack);
+        new_rack.addBook(book2);
+
+    }
+
+    public Book getBook(String titulo) {
+        Book book;
+        for (Sede sede : sedes) {
+            book = sede.getBook(titulo);
+            if (book != null)
+                return book;
+        }
+        return null;
     }
 
     public String buscarTitulo(String titulo) {
@@ -64,32 +86,6 @@ public class Biblioteca {
         return null;
     }
 
-    public Book getBook(String titulo) {
-        Book book;
-        for (Sede sede : sedes) {
-            book = sede.getBook(titulo);
-            if (book != null)
-                return book;
-        }
-        return null;
-    }
-
-    public void moveBook(String[] address, Book book) {
-        Book book2 = book;
-        // Biblioteca.deleteBook(book);
-        Rack new_rack = new Rack(Integer.valueOf(address[0]), address[1]);
-        Floor new_floor = new Floor(Integer.valueOf(address[2]));
-        Edificio new_edificio = new Edificio(address[3]);
-        Sede new_sede = new Sede(address[4]);
-
-        this.addSede(new_sede);
-        new_sede.addEdificio(new_edificio);
-        new_edificio.addFloor(new_floor);
-        new_floor.addRack(new_rack);
-        new_rack.addBook(book2);
-
-    }
-
     public void addSeccion(String[] seccion) {
         Rack new_rack = new Rack(Integer.valueOf(seccion[0]), seccion[1]);
         Floor new_floor = new Floor(Integer.valueOf(seccion[2]));
@@ -102,6 +98,16 @@ public class Biblioteca {
         new_floor.addRack(new_rack);
     }
 
+    public void addPiso(String[] piso) {
+        Floor new_floor = new Floor(Integer.valueOf(piso[0]));
+        Edificio new_edificio = new Edificio(piso[1]);
+        Sede new_sede = new Sede(piso[2]);
+
+        this.addSede(new_sede);
+        new_sede.addEdificio(new_edificio);
+        new_edificio.addFloor(new_floor);
+    }
+
     public int delete(String[] seccion, int opcion) {
         int i = 0;
         // 0 = SEDE, 1 = PISO, 2 = SECCION
@@ -112,7 +118,7 @@ public class Biblioteca {
                     i = sede.delete(seccion, opcion);
                 }
                 if (i == 0) {
-                    sedes.remove(sede);
+                    this.sedes.remove(sede);
                 }
             }
             return i;
@@ -137,19 +143,6 @@ public class Biblioteca {
         }
         return i;
     }
-
-    /*
-     * public void addPiso(Floor floor) { Floor new_floor = new Floor(floor); //
-     * Buscar for (Edificio edificio : edificios) { if (seccion[2] == edificio) {
-     * new_sede.addEdificio(edificio); } }
-     * 
-     * new_edificio.addFloor(new_floor); this.floor.add(floor); }
-     * 
-     * public int delPiso(Floor floor) { // if vacio for (Book book : books) { if
-     * (book != null) { return 0; // Error: hay libros aun }
-     * 
-     * } this.floor.remove(floor); }
-     */
 
     // ################ Getter&Setters ##############################
 
