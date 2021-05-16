@@ -87,6 +87,27 @@ public class Biblioteca {
         return i;
     }
 
+    public void addPiso(String[] piso) {
+        Floor new_floor = new Floor(Integer.valueOf(piso[0]));
+        Edificio new_edificio = new Edificio(piso[1]);
+        Sede new_sede = new Sede(piso[2]);
+
+        this.addSede(new_sede);
+        new_sede.addEdificio(new_edificio);
+        new_edificio.addFloor(new_floor);
+    }
+
+    public int delPiso(String[] piso) {
+        int i = 0;
+        // if vacio
+        for (Sede sede : sedes) {
+            if (sede.getSede().equals(piso[2])) {
+                i = sede.delSeccion(piso);
+            }
+        }
+        return i;
+    }
+
     /*
      * public void addPiso(Floor floor) { Floor new_floor = new Floor(floor); //
      * Buscar for (Edificio edificio : edificios) { if (seccion[2] == edificio) {

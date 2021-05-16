@@ -173,16 +173,31 @@ public class DisplayMenu {
           switch (opcion_submenu) {
             case 1:
               // Methods.agregarPiso()
-              // String line2 = input.nextLine();
-              // String[] user_add2 = Methods.splitLine(line2);
-              // biblioteca.addPiso(user_add2);
+              input.nextLine();
+              System.out.println(("\nIngrese la informacion del nuevo piso en el siguiente formato: "));
+              System.out.println("(Piso, edificio, sede)\n");
+              String line2 = input.nextLine();
+              String[] newFloor = Methods.splitLine(line2);
+              biblioteca.addPiso(newFloor);
               break;
 
             case 2:
               // Methods.quitarPiso()
-              // String line3 = input.nextLine();
-              // String[] user_add3 = Methods.splitLine(line3);
-              // biblioteca.delPiso(user_add3);
+              input.nextLine();
+              System.out.println(("\nIngrese la informacion del piso a eliminar en el siguiente formato: "));
+              System.out.println("(Piso, edificio, sede)\n");
+              String line3 = input.nextLine();
+              String[] delFloor = Methods.splitLine(line3);
+              int i = biblioteca.delPiso(delFloor);
+              if (i == 1) {
+                System.out.println("\nAun existen libros en este piso, por favor eliminelos.");
+                System.out.println(("\nPresione enter para continuar."));
+                input.nextLine();
+              } else {
+                System.out.println("\nPiso eliminado exitosamente.");
+                System.out.println(("\nPresione enter para continuar."));
+                input.nextLine();
+              }
               break;
           }
 
