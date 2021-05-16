@@ -23,7 +23,8 @@ public class Rack {
             this.books.add(book);
     }
 
-    public void deleteBook() {
+    public void deleteBook(Book book) {
+
     }
 
     public String buscarTitulo(String titulo) {

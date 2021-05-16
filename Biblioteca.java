@@ -30,6 +30,10 @@ public class Biblioteca {
         new_rack.addBook(new_book);
     }
 
+    public void deleteBook(Book book) {
+
+    }
+
     public void moveBook(String[] address, Book book) {
         Book book2 = book;
         // Biblioteca.deleteBook(book);

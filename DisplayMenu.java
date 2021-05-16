@@ -149,7 +149,11 @@ public class DisplayMenu {
           System.out.print("\033[H\033[2J");
           System.out.println("Ingresar Titulo a Eliminar:");
           titulo = input.nextLine();
-          // Book book = books.eliminarTitulo(titulo);
+          book = biblioteca.getBook(titulo);
+          biblioteca.deleteBook(book);
+          System.out.println("\n    LIbro Eliminado Exitosamente.");
+          System.out.println(("\nPresione enter para continuar."));
+          input.nextLine();
           break;
         case 5: // Agregar o quitar seccion
           input.nextLine();
@@ -181,11 +185,11 @@ public class DisplayMenu {
               String[] delRack = Methods.splitLine(line);
               int i = biblioteca.delete(delRack, SECCION);
               if (i == 1) {
-                System.out.println("\nAun existen libros en esta seccion, por favor eliminelos.");
+                System.out.println("\n      Aun existen libros en esta seccion, por favor eliminelos.");
                 System.out.println(("\nPresione enter para continuar."));
                 input.nextLine();
               } else {
-                System.out.println("\nSeccion eliminada exitosamente.");
+                System.out.println("\n      Seccion eliminada exitosamente.");
                 System.out.println(("\nPresione enter para continuar."));
                 input.nextLine();
               }

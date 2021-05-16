@@ -35,6 +35,10 @@ public class Sede {
         return null;
     }
 
+    public void deleteBook(Book book) {
+
+    }
+
     public String buscarTitulo(String titulo) {
         String book = "";
         for (Edificio edificio : edificios) {
