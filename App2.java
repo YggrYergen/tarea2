@@ -7,5 +7,6 @@ public class App2 {
 
         Methods.readCsv(args[0], biblioteca);
         DisplayMenu.dispMenu(biblioteca);
+        Methods.writeCSV(args[0], biblioteca);
     }
 }

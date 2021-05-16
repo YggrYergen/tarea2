@@ -38,12 +38,13 @@ public class Methods {
         }
     }
 
-    public static void writeCSV(Biblioteca biblioteca) throws IOException {
+    public static void writeCSV(String args, Biblioteca biblioteca) throws IOException {
+        String path = System.getProperty("user.dir") + "/" + args;
         for (int i = 0; i < biblioteca.sedes.size(); i++) {
             try {
             // Escribir el header del CSV
             if (i == 0) {
-                PrintWriter writer = new PrintWriter("biblioteca2.csv");
+                PrintWriter writer = new PrintWriter(new FileReader(path));
                 writer.write("titulo,autor,anio,estante_numero,estante_seccion,piso,edificio,sede");
                 writer.append("\n");
                 writer.close();
@@ -67,7 +68,7 @@ public class Methods {
             //String bookCSV = biblioteca.obtenerInfoCSV(str_tit);
 
             // Escribir toda la información en el archivo
-            BufferedWriter writer = new BufferedWriter(new FileWriter("biblioteca2.csv", true));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(new FileReader(path), true));
             writer.append(bookCSV);
           
             
