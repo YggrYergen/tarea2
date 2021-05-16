@@ -86,10 +86,12 @@ public class DisplayMenu {
               aux = "";
               aux = biblioteca.getUbicacion(titulo);
               ubicacion = Methods.splitLine(aux);
+              System.out.println("\n   Ubicacion Actual\n");
+              System.out.println("Piso: " + ubicacion[2] + "\nEdificio: " + ubicacion[3] + "\nSede: " + ubicacion[4]);
               System.out.println(("\nIngrese la informacion de la nueva ubicacion en el siguiente formato: "));
               System.out.println("(Numero del estante, nombre de la seccion)\n");
               line = input.nextLine();
-              line += ", " + ubicacion[2] + ubicacion[3] + ", " + ubicacion[4];
+              line += "," + ubicacion[2] + "," + ubicacion[3] + "," + ubicacion[4];
               String[] newSeccion = Methods.splitLine(line);
               biblioteca.moveBook(newSeccion, book);
               break;
@@ -100,21 +102,28 @@ public class DisplayMenu {
               aux = "";
               aux = biblioteca.getUbicacion(titulo);
               ubicacion = Methods.splitLine(aux);
+              System.out.println("\n   Ubicacion Actual\n");
+              System.out.println("Piso: " + ubicacion[2] + "\nEdificio: " + ubicacion[3] + "\nSede: " + ubicacion[4]);
               System.out.println(("\nIngrese la informacion de la nueva ubicacion en el siguiente formato: "));
               System.out.println("(Numero del estante, nombre de la seccion, Piso)\n");
               line = input.nextLine();
-              line += ", " + ubicacion[3] + ", " + ubicacion[4];
+              line += "," + ubicacion[3] + "," + ubicacion[4];
               String[] newPiso = Methods.splitLine(line);
               biblioteca.moveBook(newPiso, book);
               break;
 
             case 6: // Cambiar Sede
               input.nextLine();
+              book = biblioteca.getBook(titulo);
+              aux = "";
+              aux = biblioteca.getUbicacion(titulo);
+              ubicacion = Methods.splitLine(aux);
+              System.out.println("\n   Ubicacion Actual\n");
+              System.out.println("Piso: " + ubicacion[2] + "\nEdificio: " + ubicacion[3] + "\nSede: " + ubicacion[4]);
               System.out.println(("\nIngrese la informacion de la nueva ubicacion en el siguiente formato: "));
               System.out.println("(Numero del estante, nombre de la seccion, Piso, edificio, sede)\n");
               line = input.nextLine();
               String[] newSede = Methods.splitLine(line);
-              book = biblioteca.getBook(titulo);
               biblioteca.moveBook(newSede, book);
               break;
           }
@@ -136,12 +145,14 @@ public class DisplayMenu {
           break;
 
         case 4: // Quitar libro
+          input.nextLine();
           System.out.print("\033[H\033[2J");
           System.out.println("Ingresar Titulo a Eliminar:");
-          // String titulo = input.nextLine();
+          titulo = input.nextLine();
           // Book book = books.eliminarTitulo(titulo);
           break;
         case 5: // Agregar o quitar seccion
+          input.nextLine();
           System.out.print("\033[H\033[2J");
           System.out.println("Eliga una de las siguientes opciones:\n");
           System.out.println("\n[1] Agregar seccion.");
@@ -183,6 +194,7 @@ public class DisplayMenu {
           break;
 
         case 6: // Agregar o quitar piso
+          input.nextLine();
           System.out.print("\033[H\033[2J");
           System.out.println("Eliga una de las siguientes opciones:\n");
           System.out.println("\n[1] Agregar piso.");
@@ -225,6 +237,7 @@ public class DisplayMenu {
           break;
 
         case 7: // Agregar o quitar sede
+          input.nextLine();
           System.out.print("\033[H\033[2J");
           System.out.println("Eliga una de las siguientes opciones:\n");
           System.out.println("\n[1] Agregar sede.");
