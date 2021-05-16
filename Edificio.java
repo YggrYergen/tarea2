@@ -77,13 +77,36 @@ public class Edificio {
         return string;
     }
 
-    public int delSeccion(String[] seccion) {
+    public int delete(String[] seccion, int opcion) {
         int i = 0;
-        for (Floor floor : floors) {
-            if (floor.getFloor() == Integer.valueOf(seccion[2])) {
-                i = floor.delSeccion(seccion);
+        // 0 = SEDE, 1= PISO, 2 = SECCION
+        if (opcion == 0) {
+            // if vacio
+            for (Floor floor : floors) {
+                i = floor.delete(seccion, opcion);
+                if (i == 1)
+                    return i;
             }
+            return i;
+        }
+        if (opcion == 1) {
+            // if vacio
+            for (Floor floor : floors) {
+                i = floor.delete(seccion, opcion);
+                if (i == 0)
+                    floors.remove(floor);
+            }
+            return i;
+        }
+        if (opcion == 2) {
+            // if vacio
+            for (Floor floor : floors) {
+                if (floor.getFloor() == Integer.valueOf(seccion[2])) {
+                    i = floor.delete(seccion, opcion);
+                }
 
+            }
+            return i;
         }
         return i;
     }

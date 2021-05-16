@@ -102,22 +102,38 @@ public class Biblioteca {
         new_floor.addRack(new_rack);
     }
 
-    public int delete(String[] seccion, int n) {
+    public int delete(String[] seccion, int opcion) {
         int i = 0;
-        if (n == 0) {
+        // 0 = SEDE, 1 = PISO, 2 = SECCION
+        if (opcion == 0) {
             // if vacio
             for (Sede sede : sedes) {
-                if (sede.getSede().equals(seccion[4])) {
-                    i = sede.delSeccion(seccion);
+                if (sede.getSede().equals(seccion[0])) {
+                    i = sede.delete(seccion, opcion);
+                }
+                if (i == 0) {
+                    sedes.remove(sede);
                 }
             }
             return i;
         }
-        if (n == 1) {
-
+        if (opcion == 1) {
+            // if vacio
+            for (Sede sede : sedes) {
+                if (sede.getSede().equals(seccion[2])) {
+                    i = sede.delete(seccion, opcion);
+                }
+            }
+            return i;
         }
-        if (n == 2) {
-
+        if (opcion == 2) {
+            // if vacio
+            for (Sede sede : sedes) {
+                if (sede.getSede().equals(seccion[4])) {
+                    i = sede.delete(seccion, opcion);
+                }
+            }
+            return i;
         }
         return i;
     }
