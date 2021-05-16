@@ -282,6 +282,7 @@ public class DisplayMenu {
           opcion_submenu = input.nextInt();
           switch (opcion_submenu) {
             case 1: // Agregar sede
+              input.nextLine();
               System.out.println("\033[H\033[2J");
               System.out.println("\nIngrese el nombre de la sede que desea agregar.");
               System.out.print("\nNueva sede:  ");
@@ -290,6 +291,7 @@ public class DisplayMenu {
               break;
 
             case 2: // Quitar sede
+              input.nextLine();
               System.out.print("\033[H\033[2J");
               System.out.print("\nIngrese el nombre de la sede que desea quitar.");
               System.out.print("\nSede a quitar:  ");
