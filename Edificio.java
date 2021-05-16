@@ -43,7 +43,7 @@ public class Edificio {
                 return book += this.pure_toString();
         }
         return null;
-    }    
+    }
 
     public Book getBook(String titulo) {
         Book book;
@@ -79,5 +79,9 @@ public class Edificio {
 
     public ArrayList<Floor> getFloors() {
         return this.floors;
+    }
+
+    public void setFloors(ArrayList<Floor> floors) {
+        this.floors = floors;
     }
 }

@@ -80,4 +80,8 @@ public class Floor {
     public void setFloor(int floor) {
         this.floor = floor;
     }
+
+    public void setRacks(ArrayList<Rack> racks) {
+        this.racks = racks;
+    }
 }
