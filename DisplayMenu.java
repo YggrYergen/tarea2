@@ -6,7 +6,7 @@ public class DisplayMenu {
   public static void dispMenu(Biblioteca biblioteca) throws IOException {
     Scanner input = new Scanner(System.in);
     boolean salir = false;
-    int opcion_menu, opcion_submenu;
+    int opcion_menu, opcion_submenu, SEDE = 0, PISO = 1, SECCION = 2;
     Book book;
     String line, aux = "";
     String[] ubicacion;
@@ -167,7 +167,7 @@ public class DisplayMenu {
               System.out.println("(numero del estate, nombre de la seccion, Piso, edificio, sede)\n");
               line = input.nextLine();
               String[] delRack = Methods.splitLine(line);
-              int i = biblioteca.delSeccion(delRack);
+              int i = biblioteca.delete(delRack, SEDE);
               if (i == 1) {
                 System.out.println("\nAun existen libros en esta seccion, por favor eliminelos.");
                 System.out.println(("\nPresione enter para continuar."));
@@ -200,7 +200,7 @@ public class DisplayMenu {
               // Methods.quitarPiso()
               // String line3 = input.nextLine();
               // String[] user_add3 = Methods.splitLine(line3);
-              // biblioteca.delPiso(user_add3);
+              // biblioteca.delete(seccion, PISO);
               break;
           }
 

@@ -102,13 +102,22 @@ public class Biblioteca {
         new_floor.addRack(new_rack);
     }
 
-    public int delSeccion(String[] seccion) {
+    public int delete(String[] seccion, int n) {
         int i = 0;
-        // if vacio
-        for (Sede sede : sedes) {
-            if (sede.getSede().equals(seccion[4])) {
-                i = sede.delSeccion(seccion);
+        if (n == 0) {
+            // if vacio
+            for (Sede sede : sedes) {
+                if (sede.getSede().equals(seccion[4])) {
+                    i = sede.delSeccion(seccion);
+                }
             }
+            return i;
+        }
+        if (n == 1) {
+
+        }
+        if (n == 2) {
+
         }
         return i;
     }
