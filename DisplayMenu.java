@@ -8,7 +8,7 @@ public class DisplayMenu {
     boolean salir = false;
     int opcion_menu, opcion_submenu;
     Book book, book2;
-    String line, aux = "";
+    String line = "", aux = "";
     String[] ubicacion;
     while (salir != true) {
       System.out.print("\033[H\033[2J");
@@ -225,10 +225,10 @@ public class DisplayMenu {
               // Methods.quitarSeccion(etc)
               input.nextLine();
               System.out.print("\033[H\033[2J");
-              System.out.println(("\nIngrese el nombre de la sección a eliminar: ");
+              System.out.println(("\nIngrese el nombre de la sección a eliminar: "));
               String del_secc = input.nextLine();
-              int i3 = biblioteca.deleteSecc(biblioteca, del_secc);
-              if (i3 == 1) {
+              int i = biblioteca.deleteSecc(biblioteca, del_secc);
+              if (i == 1) {
                 System.out.println("\nAun existen libros en esta sección, por favor eliminelos.");
                 System.out.println(("\nPresione enter para continuar."));
                 input.nextLine();
@@ -270,8 +270,8 @@ public class DisplayMenu {
               System.out.print("\033[H\033[2J");
               System.out.println(("\nIngrese el piso a eliminar: "));
               String del_piso = input.nextLine();
-              int i2 = biblioteca.deletePiso(biblioteca, del_piso);
-              if (i2 == 1) {
+              int i = biblioteca.deletePiso(biblioteca, del_piso);
+              if (i == 1) {
                 System.out.println("\nAun existen libros en este piso, por favor eliminelos.");
                 System.out.println(("\nPresione enter para continuar."));
                 input.nextLine();
