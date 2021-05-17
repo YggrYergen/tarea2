@@ -29,7 +29,7 @@ public class DisplayMenu {
           input.nextLine();
           System.out.print("\033[H\033[2J");
           System.out.println("\n[Agregar Libro]\n");
-          System.out.println("Ingrese la información del nuevo libro en formato CSV:\n");
+          System.out.println("Ingrese la informacion del nuevo libro en formato CSV:\n");
 
           line = input.nextLine();
           String[] user_add = Methods.splitLine(line);
@@ -233,7 +233,7 @@ public class DisplayMenu {
                   "(numero del estate, nombre de la seccion, Piso, edificio, sede) separados por coma y espacio \", \"\n");
               ;
               line = input.nextLine();
-              String[] info_secc = Methods.splitLine(line);
+              String[] info_secc = line.split(", ");
               int i = biblioteca.deleteSecc(biblioteca, info_secc);
               if (i == 1) {
                 System.out.println("\nAun existen libros en esta sección, por favor eliminelos.");
