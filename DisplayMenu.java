@@ -30,7 +30,7 @@ public class DisplayMenu {
           System.out.print("\033[H\033[2J");
           System.out.println("\n[Agregar Libro]\n");
           System.out.println("Ingrese la informacion del nuevo libro en formato CSV:\n");
-
+          System.out.println("titulo,autor,anio,estante_numero,estante_seccion,piso,edificio,sede\n");
           line = input.nextLine();
           String[] user_add = Methods.splitLine(line);
           biblioteca.addBook(user_add);
