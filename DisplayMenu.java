@@ -103,7 +103,7 @@ public class DisplayMenu {
               System.out.println("\n   Ubicacion Actual\n");
               System.out.println("Piso: " + ubicacion[2] + "\nEdificio: " + ubicacion[3] + "\nSede: " + ubicacion[4]);
               System.out.println(("\nIngrese la informacion de la nueva ubicacion en el siguiente formato: "));
-              System.out.println("(Numero del estante, nombre de la seccion)\n");
+              System.out.println("(Numero del estante, nombre de la seccion) separados por coma y espacio \", \"\n");
               line = input.nextLine();
               line += ", " + ubicacion[2] + ", " + ubicacion[3] + ", " + ubicacion[4];
               String[] newSeccion = line.split(", ");
@@ -128,7 +128,8 @@ public class DisplayMenu {
               System.out.println("\n   Ubicacion Actual\n");
               System.out.println("Piso: " + ubicacion[2] + "\nEdificio: " + ubicacion[3] + "\nSede: " + ubicacion[4]);
               System.out.println(("\nIngrese la informacion de la nueva ubicacion en el siguiente formato: "));
-              System.out.println("(Numero del estante, nombre de la seccion, Piso)\n");
+              System.out
+                  .println("(Numero del estante, nombre de la seccion, Piso) separados por coma y espacio \", \"\n");
               line = input.nextLine();
               line += ", " + ubicacion[3] + ", " + ubicacion[4];
               String[] newPiso = line.split(", ");
@@ -153,7 +154,8 @@ public class DisplayMenu {
               System.out.println("\n   Ubicacion Actual\n");
               System.out.println("Piso: " + ubicacion[2] + "\nEdificio: " + ubicacion[3] + "\nSede: " + ubicacion[4]);
               System.out.println(("\nIngrese la informacion de la nueva ubicacion en el siguiente formato: "));
-              System.out.println("(Numero del estante, nombre de la seccion, Piso, edificio, sede)\n");
+              System.out.println(
+                  "(Numero del estante, nombre de la seccion, Piso, edificio, sede) separados por coma y espacio \", \"\n");
               line = input.nextLine();
               String[] newSede = Methods.splitLine(line);
               biblioteca.moveBook(newSede, book2);
@@ -212,7 +214,8 @@ public class DisplayMenu {
               input.nextLine();
               System.out.print("\033[H\033[2J");
               System.out.println(("\nIngrese la informacion de la nueva seccion en el siguiente formato: "));
-              System.out.println("(Numero del estante, nombre de la seccion, Piso, edificio, sede)\n");
+              System.out.println(
+                  "(Numero del estante, nombre de la seccion, Piso, edificio, sede) separados por coma y espacio \", \"\n");
               line = input.nextLine();
               String[] newRack = line.split(", ");
               biblioteca.addSeccion(newRack);
@@ -226,7 +229,8 @@ public class DisplayMenu {
               input.nextLine();
               System.out.print("\033[H\033[2J");
               System.out.println(("\nIngrese la informacion de la seccion a eliminar en el siguiente formato: "));
-              System.out.println("(numero del estate, nombre de la seccion, Piso, edificio, sede)\n");
+              System.out.println(
+                  "(numero del estate, nombre de la seccion, Piso, edificio, sede) separados por coma y espacio \", \"\n");
               ;
               line = input.nextLine();
               String[] info_secc = Methods.splitLine(line);
@@ -258,7 +262,7 @@ public class DisplayMenu {
               input.nextLine();
               System.out.print("\033[H\033[2J");
               System.out.println(("\nIngrese la informacion del nuevo piso en el siguiente formato: "));
-              System.out.println("(Piso, edificio, sede)\n");
+              System.out.println("(Piso, edificio, sede) separados por coma y espacio \", \"\n");
               line = input.nextLine();
               String[] newFloor = line.split(", ");
               System.out.println(newFloor[0]);
@@ -275,9 +279,9 @@ public class DisplayMenu {
               input.nextLine();
               System.out.print("\033[H\033[2J");
               System.out.println(("\nIngrese la informacion del piso a eliminar en el siguiente formato: "));
-              System.out.println("(Piso, edificio, sede)\n");
+              System.out.println("(Piso, edificio, sede) separados por coma y espacio \", \"\n");
               line = input.nextLine();
-              String[] info_piso = Methods.splitLine(line);
+              String[] info_piso = line.split(", ");
               int i = biblioteca.deletePiso(biblioteca, info_piso);
               if (i == 1) {
                 System.out.println("\nAun existen libros en este piso, por favor eliminelos.");
