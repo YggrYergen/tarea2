@@ -1,5 +1,4 @@
-# tarea2
-EDA - Tarea 2 
+Integrantes: Catalina Córdova, Sebastian Dinator, Tomas Gemes, Esteban Schanze, Rodrigo Rojas 
 
 Supuestos: 
 

@@ -96,23 +96,23 @@ public class DisplayMenu {
               input.nextLine();
               book = biblioteca.getBook(titulo);
               aux = "";
-              aux = biblioteca.getUbicacion(titulo);
+              aux += biblioteca.getUbicacion(titulo);
               ubicacion = Methods.splitLine(aux);
               book2 = book;
               biblioteca.deleteBook(biblioteca, titulo);
               System.out.println("\n   Ubicacion Actual\n");
-              System.out.println("Piso: " + ubicacion[2] + "\nEdificio: " + ubicacion[3] + "\nSede: " + ubicacion[4]);
+              System.out.println("Piso: " + ubicacion[5] + "\nEdificio: " + ubicacion[6] + "\nSede: " + ubicacion[8]);
               System.out.println(("\nIngrese la informacion de la nueva ubicacion en el siguiente formato: "));
               System.out.println("(Numero del estante, nombre de la seccion) separados por coma y espacio \", \"\n");
               line = input.nextLine();
-              line += ", " + ubicacion[2] + ", " + ubicacion[3] + ", " + ubicacion[4];
+              line += ", " + ubicacion[6] + ", " + ubicacion[7] + ", " + ubicacion[8];
               String[] newSeccion = line.split(", ");
               biblioteca.moveBook(newSeccion, book2);
               System.out.println(("\n    El libro se ha movido exitosamente."));
               aux = biblioteca.getUbicacion(titulo);
               ubicacion = Methods.splitLine(aux);
               System.out.println("\n   Nueva Ubicacion\n");
-              System.out.println("Piso: " + ubicacion[2] + "\nEdificio: " + ubicacion[3] + "\nSede: " + ubicacion[4]);
+              System.out.println("Piso: " + ubicacion[6] + "\nEdificio: " + ubicacion[7] + "\nSede: " + ubicacion[8]);
               System.out.println(("\nPresione enter para continuar."));
               input.nextLine();
               break;
@@ -122,11 +122,11 @@ public class DisplayMenu {
               book = biblioteca.getBook(titulo);
               aux = "";
               aux = biblioteca.getUbicacion(titulo);
-              ubicacion = Methods.splitLine(aux);
+              ubicacion = Methods.splitLine(aux)
               book2 = book;
               biblioteca.deleteBook(biblioteca, titulo);
               System.out.println("\n   Ubicacion Actual\n");
-              System.out.println("Piso: " + ubicacion[2] + "\nEdificio: " + ubicacion[3] + "\nSede: " + ubicacion[4]);
+              System.out.println("Piso: " + ubicacion[5] + "\nEdificio: " + ubicacion[6] + "\nSede: " + ubicacion[8]);
               System.out.println(("\nIngrese la informacion de la nueva ubicacion en el siguiente formato: "));
               System.out
                   .println("(Numero del estante, nombre de la seccion, Piso) separados por coma y espacio \", \"\n");
@@ -152,7 +152,7 @@ public class DisplayMenu {
               book2 = book;
               biblioteca.deleteBook(biblioteca, titulo);
               System.out.println("\n   Ubicacion Actual\n");
-              System.out.println("Piso: " + ubicacion[2] + "\nEdificio: " + ubicacion[3] + "\nSede: " + ubicacion[4]);
+              System.out.println("Piso: " + ubicacion[5] + "\nEdificio: " + ubicacion[6] + "\nSede: " + ubicacion[8]);
               System.out.println(("\nIngrese la informacion de la nueva ubicacion en el siguiente formato: "));
               System.out.println(
                   "(Numero del estante, nombre de la seccion, Piso, edificio, sede) separados por coma y espacio \", \"\n");

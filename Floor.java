@@ -46,7 +46,7 @@ public class Floor {
         for (Rack rack : racks) {
             info = rack.obtenerInfoCSV(titulo);
             if (info != null)
-                return info += ", " + this.floor;
+                return info += "," + this.floor;
         }
         return null;
     }
@@ -60,13 +60,6 @@ public class Floor {
         }
         return null;
     }
-
-    /*
-     * public int delete(String[] seccion, int opcion) { for (Rack rack : racks) {
-     * if (rack.getESeccion().equals(seccion[1]) && rack.getENumero() ==
-     * Integer.valueOf(seccion[0])) { if (rack.getBooks() != null) { return 1; }
-     * this.racks.remove(rack); } } return 0; }
-     */
 
     public String toString() {
         String string = "";

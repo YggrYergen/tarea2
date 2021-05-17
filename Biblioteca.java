@@ -147,7 +147,10 @@ public class Biblioteca {
         int j = 1;
         for (int i = 0; i < biblioteca.sedes.size(); i++) {
             try {
-                if ((biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getFloor() == Integer.valueOf(info_piso[0])) && (biblioteca.sedes.get(i).getEdificios().get(0).getEdificio().equals(info_piso[1])) &&(biblioteca.sedes.get(i).getSede().equals(info_piso[2]))) {
+                if ((biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getFloor() == Integer
+                        .valueOf(info_piso[0]))
+                        && (biblioteca.sedes.get(i).getEdificios().get(0).getEdificio().equals(info_piso[1]))
+                        && (biblioteca.sedes.get(i).getSede().equals(info_piso[2]))) {
                     if ((biblioteca.sedes.get(i).getEdificios().isEmpty() == true)
                             || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().isEmpty() == true)
                             || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks()
@@ -170,7 +173,14 @@ public class Biblioteca {
         int j = 1;
         for (int i = 0; i < biblioteca.sedes.size(); i++) {
             try {
-                if ((biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().get(0).getENumero() == Integer.valueOf(info_secc[0])) && (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().get(0).getESeccion().equals(info_secc[1])) && (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getFloor() == Integer.valueOf(info_secc[2])) && (biblioteca.sedes.get(i).getEdificios().get(0).getEdificio().equals(info_secc[3])) &&(biblioteca.sedes.get(i).getSede().equals(info_secc[4]))) {
+                if ((biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().get(0)
+                        .getENumero() == Integer.valueOf(info_secc[0]))
+                        && (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().get(0)
+                                .getESeccion().equals(info_secc[1]))
+                        && (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getFloor() == Integer
+                                .valueOf(info_secc[2]))
+                        && (biblioteca.sedes.get(i).getEdificios().get(0).getEdificio().equals(info_secc[3]))
+                        && (biblioteca.sedes.get(i).getSede().equals(info_secc[4]))) {
                     if ((biblioteca.sedes.get(i).getEdificios().isEmpty() == true)
                             || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().isEmpty() == true)
                             || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks()

@@ -83,16 +83,6 @@ public class Methods {
         }
     }
 
-    /*
-     * public static void deleteBook(Biblioteca biblioteca, String titulo) { for
-     * (int i = 0; i < biblioteca.sedes.size(); i++) { if
-     * (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().
-     * get(0).getBooks().get(0) .getTitulo().equals(titulo)) { try {
-     * biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().
-     * get(0).getBooks() .remove(0); } catch (IndexOutOfBoundsException e) { //
-     * Hacer nada ._. } } } }
-     */
-
     public static String[] splitLine(String line) {
         String[] user_add;
         line = line.replace(",\"", "@\"");

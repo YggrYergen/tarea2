@@ -41,7 +41,7 @@ public class Rack {
         String info = "";
         for (Book book : books) {
             if (titulo.equalsIgnoreCase(book.getTitulo())) {
-                return info += this.eNumero + ", " + this.eSeccion;
+                return info += book.pure_toString() + this.eNumero + "," + this.eSeccion;
             }
         }
         return null;

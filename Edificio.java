@@ -46,7 +46,7 @@ public class Edificio {
         for (Floor floor : floors) {
             info = floor.obtenerInfoCSV(titulo);
             if (info != null)
-                return info += ", " + this.edificio;
+                return info += "," + this.edificio;
         }
         return null;
     }
@@ -60,20 +60,6 @@ public class Edificio {
         }
         return null;
     }
-
-    /*
-     * public int delete(String[] seccion, int opcion) { int i = 0; // 1= PISO, 2 =
-     * SECCION switch (opcion) { case 1: for (Floor floor : floors) { if
-     * (floor.getFloorString().equals(seccion[0])) { if (floor.getRacks() != null) {
-     * return 1; } this.floors.remove(floor); } } return i;
-     * 
-     * case 2: for (Floor floor : floors) { if (floor.getFloor() ==
-     * Integer.valueOf(seccion[2])) { i = floor.delete(seccion, opcion); }
-     * 
-     * } return i; }
-     * 
-     * return i; }
-     */
 
     public String toString() {
         String string = "";
