@@ -316,8 +316,7 @@ public class DisplayMenu {
               System.out.print("\033[H\033[2J");
               System.out.print("\nIngrese el nombre de la sede que desea quitar.");
               System.out.print("\nSede a quitar:  ");
-              line = input.nextLine();
-              String[] delSede = Methods.splitLine(line);
+              /*String[] delSede = Methods.splitLine(line);
               int i = biblioteca.delete(delSede, SEDE);
               if (i == 1) {
                 System.out.println("\nAun existen libros en esta Sede, por favor eliminelos.");
@@ -327,7 +326,9 @@ public class DisplayMenu {
                 System.out.println("\nSede eliminada exitosamente.");
                 System.out.println(("\nPresione enter para continuar."));
                 input.nextLine();
-              }
+              }*/
+              String del_sede = input.nextLine();
+              Methods.deleteSede(biblioteca, line);
           }
 
           break;
