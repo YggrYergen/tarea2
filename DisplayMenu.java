@@ -105,14 +105,14 @@ public class DisplayMenu {
               System.out.println(("\nIngrese la informacion de la nueva ubicacion en el siguiente formato: "));
               System.out.println("(Numero del estante, nombre de la seccion) separados por coma y espacio \", \"\n");
               line = input.nextLine();
-              line += ", " + ubicacion[6] + ", " + ubicacion[7] + ", " + ubicacion[8];
+              line += ", " + ubicacion[5] + ", " + ubicacion[6] + ", " + ubicacion[8];
               String[] newSeccion = line.split(", ");
               biblioteca.moveBook(newSeccion, book2);
               System.out.println(("\n    El libro se ha movido exitosamente."));
               aux = biblioteca.getUbicacion(titulo);
               ubicacion = Methods.splitLine(aux);
               System.out.println("\n   Nueva Ubicacion\n");
-              System.out.println("Piso: " + ubicacion[6] + "\nEdificio: " + ubicacion[7] + "\nSede: " + ubicacion[8]);
+              System.out.println("Piso: " + ubicacion[5] + "\nEdificio: " + ubicacion[6] + "\nSede: " + ubicacion[8]);
               System.out.println(("\nPresione enter para continuar."));
               input.nextLine();
               break;
