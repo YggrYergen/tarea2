@@ -122,7 +122,7 @@ public class DisplayMenu {
               book = biblioteca.getBook(titulo);
               aux = "";
               aux = biblioteca.getUbicacion(titulo);
-              ubicacion = Methods.splitLine(aux)
+              ubicacion = Methods.splitLine(aux);
               book2 = book;
               biblioteca.deleteBook(biblioteca, titulo);
               System.out.println("\n   Ubicacion Actual\n");
