@@ -34,6 +34,9 @@ public class DisplayMenu {
           line = input.nextLine();
           String[] user_add = Methods.splitLine(line);
           biblioteca.addBook(user_add);
+          System.out.println("\nLibro agregado.");
+          System.out.println(("\nPresione enter para continuar."));
+          input.nextLine();
 
           //////////////////
           break;
@@ -60,6 +63,9 @@ public class DisplayMenu {
               System.out.print("\nNuevo titulo: ");
               String newTitle = input.nextLine();
               book.setTitulo(newTitle);
+              System.out.println("\nTitulo modificado.");
+              System.out.println(("\nPresione enter para continuar."));
+              input.nextLine();
               break;
 
             case 2: // Cambiar autor
@@ -69,6 +75,9 @@ public class DisplayMenu {
               System.out.print("\nNuevo autor: ");
               String newAutor = input.nextLine();
               book.setAutor(newAutor);
+              System.out.println("\nAutor modificado.");
+              System.out.println(("\nPresione enter para continuar."));
+              input.nextLine();
               break;
 
             case 3: // Cambiar anio
@@ -78,6 +87,9 @@ public class DisplayMenu {
               System.out.print("\nNuevo anio: ");
               int newAnio = input.nextInt();
               book.setAnio(newAnio);
+              System.out.println("\nAnio modificado.");
+              System.out.println(("\nPresione enter para continuar."));
+              input.nextLine();
               break;
 
             case 4: // Cambiar seccion
@@ -205,6 +217,9 @@ public class DisplayMenu {
               line = input.nextLine();
               String[] newRack = Methods.splitLine(line);
               biblioteca.addSeccion(newRack);
+              System.out.println("\nSeccion agregada.");
+              System.out.println(("\nPresione enter para continuar."));
+              input.nextLine();
               break;
 
             case 2:
@@ -247,6 +262,9 @@ public class DisplayMenu {
               String line2 = input.nextLine();
               String[] newFloor = Methods.splitLine(line2);
               biblioteca.addPiso(newFloor);
+              System.out.println("\nPiso agregado.");
+              System.out.println(("\nPresione enter para continuar."));
+              input.nextLine();
               break;
 
             case 2:
@@ -288,6 +306,9 @@ public class DisplayMenu {
               System.out.print("\nNueva sede:  ");
               Sede newSede = new Sede(input.nextLine());
               biblioteca.addSede(newSede);
+              System.out.println("\nSede agregada.");
+              System.out.println(("\nPresione enter para continuar."));
+              input.nextLine();
               break;
 
             case 2: // Quitar sede
@@ -295,8 +316,7 @@ public class DisplayMenu {
               System.out.print("\033[H\033[2J");
               System.out.print("\nIngrese el nombre de la sede que desea quitar.");
               System.out.print("\nSede a quitar:  ");
-              line = input.nextLine();
-              String[] delSede = Methods.splitLine(line);
+              /*String[] delSede = Methods.splitLine(line);
               int i = biblioteca.delete(delSede, SEDE);
               if (i == 1) {
                 System.out.println("\nAun existen libros en esta Sede, por favor eliminelos.");
@@ -306,7 +326,9 @@ public class DisplayMenu {
                 System.out.println("\nSede eliminada exitosamente.");
                 System.out.println(("\nPresione enter para continuar."));
                 input.nextLine();
-              }
+              }*/
+              String del_sede = input.nextLine();
+              Methods.deleteSede(biblioteca, line);
           }
 
           break;
