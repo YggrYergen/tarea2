@@ -141,6 +141,50 @@ public class Biblioteca {
         }
         return j;
     }
+    
+    public int deletePiso(Biblioteca biblioteca, String nombre_piso) {
+        int j = 1;
+        for (int i = 0; i < biblioteca.sedes.size(); i++) {
+            try {
+                if (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getFloor() == Integer.valueOf(nombre_piso))) {
+                    if ((biblioteca.sedes.get(i).getEdificios().isEmpty() == true)
+                            || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().isEmpty() == true)
+                            || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks()
+                                    .isEmpty() == true)
+                            || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().get(0)
+                                    .getBooks().isEmpty() == true)) {
+                        biblioteca.sedes.get(i).getEdificios().get(0).getFloors().remove(0);
+                        j = 0;
+                        break;
+                    }
+                }
+            } catch (IndexOutOfBoundsException e) {
+            }
+        }
+        return j;
+    }  
+
+    public int deleteSecc(Biblioteca biblioteca, String nombre_secc) {
+        int j = 1;
+        for (int i = 0; i < biblioteca.sedes.size(); i++) {
+            try {
+                if (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().get(0).getESeccion().equals(nombre_secc)) {
+                    if ((biblioteca.sedes.get(i).getEdificios().isEmpty() == true)
+                            || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().isEmpty() == true)
+                            || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks()
+                                    .isEmpty() == true)
+                            || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().get(0)
+                                    .getBooks().isEmpty() == true)) {
+                        System.out.println(biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().remove(0);
+                        j = 0;
+                        break;
+                    }
+                }
+            } catch (IndexOutOfBoundsException e) {
+            }
+        }
+        return j;
+    }          
 
     /*
      * public int delete(String[] seccion, int opcion) { int i = 0; // 0 = SEDE, 1 =
