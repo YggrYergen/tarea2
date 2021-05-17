@@ -55,7 +55,9 @@ public class Methods {
                 if ((biblioteca.sedes.get(i).getEdificios().isEmpty() == true)
                         || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().isEmpty() == true)
                         || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks()
-                                .isEmpty() == true) || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().get(0).getBooks().isEmpty() == true)) {
+                                .isEmpty() == true)
+                        || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().get(0)
+                                .getBooks().isEmpty() == true)) {
                     continue;
                 }
 
@@ -80,44 +82,16 @@ public class Methods {
             }
         }
     }
-    
-    public static void deleteSede(Biblioteca biblioteca, String nombre_sede) {
-        for (int i = 0; i < biblioteca.sedes.size(); i++) {
-          try {
-            if (biblioteca.sedes.get(i).getSede().equals(nombre_sede)) {
-              System.out.println("Sede encontrada.");
-              if ((biblioteca.sedes.get(i).getEdificios().isEmpty() == true)
-                      || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().isEmpty() == true)
-                      || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks()
-                              .isEmpty() == true) || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().get(0).getBooks().isEmpty() == true)) {
-                  System.out.println("y... ¡Está vacía!");
-                  System.out.println("Eliminando...");
-                  biblioteca.sedes.remove(i);
-                  break;
-              } else {
-                System.out.println("La sede tiene un libro.");
-                break;
-              }      
-            }    
-          }
-          catch (IndexOutOfBoundsException e) {} 
-        }        
-    }
 
-    public static void deleteBook(Biblioteca biblioteca, String titulo) {
-        for (int i = 0; i < biblioteca.sedes.size(); i++) {
-            if (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().get(0).getBooks().get(0)
-                    .getTitulo().equals(titulo)) {
-                try {
-                    biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().get(0).getBooks()
-                            .remove(0);
-                } catch (IndexOutOfBoundsException e) {
-                    // Hacer nada ._.
-                }
-            }
-        }
-    }
-    
+    /*
+     * public static void deleteBook(Biblioteca biblioteca, String titulo) { for
+     * (int i = 0; i < biblioteca.sedes.size(); i++) { if
+     * (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().
+     * get(0).getBooks().get(0) .getTitulo().equals(titulo)) { try {
+     * biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().
+     * get(0).getBooks() .remove(0); } catch (IndexOutOfBoundsException e) { //
+     * Hacer nada ._. } } } }
+     */
 
     public static String[] splitLine(String line) {
         String[] user_add;

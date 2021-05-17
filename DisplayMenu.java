@@ -6,7 +6,7 @@ public class DisplayMenu {
   public static void dispMenu(Biblioteca biblioteca) throws IOException {
     Scanner input = new Scanner(System.in);
     boolean salir = false;
-    int opcion_menu, opcion_submenu, SEDE = 0, PISO = 1, SECCION = 2;
+    int opcion_menu, opcion_submenu;
     Book book, book2;
     String line, aux = "";
     String[] ubicacion;
@@ -99,7 +99,7 @@ public class DisplayMenu {
               aux = biblioteca.getUbicacion(titulo);
               ubicacion = Methods.splitLine(aux);
               book2 = book;
-              Methods.deleteBook(biblioteca, titulo);
+              biblioteca.deleteBook(biblioteca, titulo);
               System.out.println("\n   Ubicacion Actual\n");
               System.out.println("Piso: " + ubicacion[2] + "\nEdificio: " + ubicacion[3] + "\nSede: " + ubicacion[4]);
               System.out.println(("\nIngrese la informacion de la nueva ubicacion en el siguiente formato: "));
@@ -124,7 +124,7 @@ public class DisplayMenu {
               aux = biblioteca.getUbicacion(titulo);
               ubicacion = Methods.splitLine(aux);
               book2 = book;
-              Methods.deleteBook(biblioteca, titulo);
+              biblioteca.deleteBook(biblioteca, titulo);
               System.out.println("\n   Ubicacion Actual\n");
               System.out.println("Piso: " + ubicacion[2] + "\nEdificio: " + ubicacion[3] + "\nSede: " + ubicacion[4]);
               System.out.println(("\nIngrese la informacion de la nueva ubicacion en el siguiente formato: "));
@@ -149,7 +149,7 @@ public class DisplayMenu {
               aux = biblioteca.getUbicacion(titulo);
               ubicacion = Methods.splitLine(aux);
               book2 = book;
-              Methods.deleteBook(biblioteca, titulo);
+              biblioteca.deleteBook(biblioteca, titulo);
               System.out.println("\n   Ubicacion Actual\n");
               System.out.println("Piso: " + ubicacion[2] + "\nEdificio: " + ubicacion[3] + "\nSede: " + ubicacion[4]);
               System.out.println(("\nIngrese la informacion de la nueva ubicacion en el siguiente formato: "));
@@ -193,8 +193,7 @@ public class DisplayMenu {
           System.out.print("\033[H\033[2J");
           System.out.println("Ingresar Titulo a Eliminar:");
           titulo = input.nextLine();
-          String del_titulo = input.nextLine();
-          Methods.deleteBook(biblioteca, del_titulo);
+          biblioteca.deleteBook(biblioteca, titulo);
           System.out.println("\n    LIbro Eliminado Exitosamente.");
           System.out.println(("\nPresione enter para continuar."));
           input.nextLine();
@@ -230,16 +229,14 @@ public class DisplayMenu {
               System.out.println("(numero del estate, nombre de la seccion, Piso, edificio, sede)\n");
               line = input.nextLine();
               String[] delRack = Methods.splitLine(line);
-              int i = biblioteca.delete(delRack, SECCION);
-              if (i == 1) {
-                System.out.println("\n      Aun existen libros en esta seccion, por favor eliminelos.");
-                System.out.println(("\nPresione enter para continuar."));
-                input.nextLine();
-              } else {
-                System.out.println("\n      Seccion eliminada exitosamente.");
-                System.out.println(("\nPresione enter para continuar."));
-                input.nextLine();
-              }
+              // int i = biblioteca.delete(delRack, SECCION);
+              /*
+               * if (i == 1) { System.out.
+               * println("\n      Aun existen libros en esta seccion, por favor eliminelos.");
+               * System.out.println(("\nPresione enter para continuar.")); input.nextLine(); }
+               * else { System.out.println("\n      Seccion eliminada exitosamente.");
+               * System.out.println(("\nPresione enter para continuar.")); input.nextLine(); }
+               */
               break;
           }
           break;
@@ -275,16 +272,15 @@ public class DisplayMenu {
               System.out.println("(Piso, edificio, sede)\n");
               line = input.nextLine();
               String[] delFloor = Methods.splitLine(line);
-              int i = biblioteca.delete(delFloor, PISO);
-              if (i == 1) {
-                System.out.println("\nAun existen libros en este piso, por favor eliminelos.");
-                System.out.println(("\nPresione enter para continuar."));
-                input.nextLine();
-              } else {
-                System.out.println("\nPiso eliminado exitosamente.");
-                System.out.println(("\nPresione enter para continuar."));
-                input.nextLine();
-              }
+              // int i = biblioteca.delete(delFloor, PISO);
+              /*
+               * if (i == 1) {
+               * System.out.println("\nAun existen libros en este piso, por favor eliminelos."
+               * ); System.out.println(("\nPresione enter para continuar."));
+               * input.nextLine(); } else {
+               * System.out.println("\nPiso eliminado exitosamente.");
+               * System.out.println(("\nPresione enter para continuar.")); input.nextLine(); }
+               */
               break;
           }
 
@@ -316,8 +312,8 @@ public class DisplayMenu {
               System.out.print("\033[H\033[2J");
               System.out.print("\nIngrese el nombre de la sede que desea quitar.");
               System.out.print("\nSede a quitar:  ");
-              /*String[] delSede = Methods.splitLine(line);
-              int i = biblioteca.delete(delSede, SEDE);
+              String del_sede = input.nextLine();
+              int i = biblioteca.deleteSede(biblioteca, del_sede);
               if (i == 1) {
                 System.out.println("\nAun existen libros en esta Sede, por favor eliminelos.");
                 System.out.println(("\nPresione enter para continuar."));
@@ -326,9 +322,7 @@ public class DisplayMenu {
                 System.out.println("\nSede eliminada exitosamente.");
                 System.out.println(("\nPresione enter para continuar."));
                 input.nextLine();
-              }*/
-              String del_sede = input.nextLine();
-              Methods.deleteSede(biblioteca, line);
+              }
           }
 
           break;
