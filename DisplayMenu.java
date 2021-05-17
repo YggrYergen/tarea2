@@ -225,18 +225,18 @@ public class DisplayMenu {
               // Methods.quitarSeccion(etc)
               input.nextLine();
               System.out.print("\033[H\033[2J");
-              System.out.println(("\nIngrese la informacion de la seccion a eliminar en el siguiente formato: "));
-              System.out.println("(numero del estate, nombre de la seccion, Piso, edificio, sede)\n");
-              line = input.nextLine();
-              String[] delRack = Methods.splitLine(line);
-              // int i = biblioteca.delete(delRack, SECCION);
-              /*
-               * if (i == 1) { System.out.
-               * println("\n      Aun existen libros en esta seccion, por favor eliminelos.");
-               * System.out.println(("\nPresione enter para continuar.")); input.nextLine(); }
-               * else { System.out.println("\n      Seccion eliminada exitosamente.");
-               * System.out.println(("\nPresione enter para continuar.")); input.nextLine(); }
-               */
+              System.out.println(("\nIngrese el nombre de la sección a eliminar: ");
+              String del_secc = input.nextLine();
+              int i3 = biblioteca.deleteSecc(biblioteca, del_secc);
+              if (i3 == 1) {
+                System.out.println("\nAun existen libros en esta sección, por favor eliminelos.");
+                System.out.println(("\nPresione enter para continuar."));
+                input.nextLine();
+              } else {
+                System.out.println("\nSección eliminada exitosamente.");
+                System.out.println(("\nPresione enter para continuar."));
+                input.nextLine();
+              }
               break;
           }
           break;
@@ -268,19 +268,18 @@ public class DisplayMenu {
               // Methods.quitarPiso()
               input.nextLine();
               System.out.print("\033[H\033[2J");
-              System.out.println(("\nIngrese la informacion del piso a eliminar en el siguiente formato: "));
-              System.out.println("(Piso, edificio, sede)\n");
-              line = input.nextLine();
-              String[] delFloor = Methods.splitLine(line);
-              // int i = biblioteca.delete(delFloor, PISO);
-              /*
-               * if (i == 1) {
-               * System.out.println("\nAun existen libros en este piso, por favor eliminelos."
-               * ); System.out.println(("\nPresione enter para continuar."));
-               * input.nextLine(); } else {
-               * System.out.println("\nPiso eliminado exitosamente.");
-               * System.out.println(("\nPresione enter para continuar.")); input.nextLine(); }
-               */
+              System.out.println(("\nIngrese el piso a eliminar: "));
+              String del_piso = input.nextLine();
+              int i2 = biblioteca.deletePiso(biblioteca, del_piso);
+              if (i2 == 1) {
+                System.out.println("\nAun existen libros en este piso, por favor eliminelos.");
+                System.out.println(("\nPresione enter para continuar."));
+                input.nextLine();
+              } else {
+                System.out.println("\nPiso eliminado exitosamente.");
+                System.out.println(("\nPresione enter para continuar."));
+                input.nextLine();
+              }
               break;
           }
 
