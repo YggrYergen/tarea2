@@ -214,7 +214,7 @@ public class DisplayMenu {
               System.out.println(("\nIngrese la informacion de la nueva seccion en el siguiente formato: "));
               System.out.println("(Numero del estante, nombre de la seccion, Piso, edificio, sede)\n");
               line = input.nextLine();
-              String[] newRack = Methods.splitLine(line);
+              String[] newRack = line.split(", ");
               biblioteca.addSeccion(newRack);
               System.out.println("\nSeccion agregada.");
               System.out.println(("\nPresione enter para continuar."));
@@ -259,8 +259,11 @@ public class DisplayMenu {
               System.out.print("\033[H\033[2J");
               System.out.println(("\nIngrese la informacion del nuevo piso en el siguiente formato: "));
               System.out.println("(Piso, edificio, sede)\n");
-              String line2 = input.nextLine();
-              String[] newFloor = Methods.splitLine(line2);
+              line = input.nextLine();
+              String[] newFloor = line.split(", ");
+              System.out.println(newFloor[0]);
+              System.out.println(newFloor[1]);
+              System.out.println(newFloor[2]);
               biblioteca.addPiso(newFloor);
               System.out.println("\nPiso agregado.");
               System.out.println(("\nPresione enter para continuar."));
