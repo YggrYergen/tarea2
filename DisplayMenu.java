@@ -225,7 +225,9 @@ public class DisplayMenu {
               // Methods.quitarSeccion(etc)
               input.nextLine();
               System.out.print("\033[H\033[2J");
-              System.out.println(("\nIngrese el nombre de la sección a eliminar: "));
+              System.out.println(("\nIngrese la informacion de la seccion a eliminar en el siguiente formato: "));
+              System.out.println("(numero del estate, nombre de la seccion, Piso, edificio, sede)\n");
+              ;
               line = input.nextLine();
               String[] info_secc = Methods.splitLine(line);
               int i = biblioteca.deleteSecc(biblioteca, info_secc);
@@ -269,7 +271,8 @@ public class DisplayMenu {
               // Methods.quitarPiso()
               input.nextLine();
               System.out.print("\033[H\033[2J");
-              System.out.println(("\nIngrese el piso a eliminar: "));
+              System.out.println(("\nIngrese la informacion del piso a eliminar en el siguiente formato: "));
+              System.out.println("(Piso, edificio, sede)\n");
               line = input.nextLine();
               String[] info_piso = Methods.splitLine(line);
               int i = biblioteca.deletePiso(biblioteca, info_piso);
