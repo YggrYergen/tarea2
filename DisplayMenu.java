@@ -226,8 +226,9 @@ public class DisplayMenu {
               input.nextLine();
               System.out.print("\033[H\033[2J");
               System.out.println(("\nIngrese el nombre de la sección a eliminar: "));
-              String del_secc = input.nextLine();
-              int i = biblioteca.deleteSecc(biblioteca, del_secc);
+              line = input.nextLine();
+              String[] info_secc = Methods.splitLine(line);
+              int i = biblioteca.deleteSecc(biblioteca, info_secc);
               if (i == 1) {
                 System.out.println("\nAun existen libros en esta sección, por favor eliminelos.");
                 System.out.println(("\nPresione enter para continuar."));
@@ -269,8 +270,9 @@ public class DisplayMenu {
               input.nextLine();
               System.out.print("\033[H\033[2J");
               System.out.println(("\nIngrese el piso a eliminar: "));
-              String del_piso = input.nextLine();
-              int i = biblioteca.deletePiso(biblioteca, del_piso);
+              line = input.nextLine();
+              String[] info_piso = Methods.splitLine(line);
+              int i = biblioteca.deletePiso(biblioteca, info_piso);
               if (i == 1) {
                 System.out.println("\nAun existen libros en este piso, por favor eliminelos.");
                 System.out.println(("\nPresione enter para continuar."));
