@@ -31,10 +31,6 @@ public class Floor {
         return null;
     }
 
-    public void deleteBook(Book book) {
-
-    }
-
     public String buscarTitulo(String titulo) {
         String book = "";
         for (Rack rack : racks) {
@@ -66,30 +62,15 @@ public class Floor {
     }
 
     public int delete(String[] seccion, int opcion) {
-        int i = 0;
-        // 0 = SEDE, 1= PISO, 2 = SECCION
-        if (opcion != 2) {
-            for (Rack rack : racks) {
-                if (rack.getESeccion().equals(seccion[1]) && rack.getENumero() == Integer.valueOf(seccion[0])) {
-                    if (rack.getBooks() != null) {
-                        return 1;
-                    }
+        for (Rack rack : racks) {
+            if (rack.getESeccion().equals(seccion[1]) && rack.getENumero() == Integer.valueOf(seccion[0])) {
+                if (rack.getBooks() != null) {
+                    return 1;
                 }
+                this.racks.remove(rack);
             }
-            return 0;
         }
-        if (opcion == 2) {
-            for (Rack rack : racks) {
-                if (rack.getESeccion().equals(seccion[1]) && rack.getENumero() == Integer.valueOf(seccion[0])) {
-                    if (rack.getBooks() != null) {
-                        return 1;
-                    }
-                    this.racks.remove(rack);
-                }
-            }
-            return 0;
-        }
-        return i;
+        return 0;
     }
 
     public String toString() {
@@ -112,6 +93,11 @@ public class Floor {
 
     public int getFloor() {
         return this.floor;
+    }
+
+    public String getFloorString() {
+        String string = "";
+        return string += this.floor;
     }
 
     public void setFloor(int floor) {

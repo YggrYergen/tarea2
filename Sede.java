@@ -35,10 +35,6 @@ public class Sede {
         return null;
     }
 
-    public void deleteBook(Book book) {
-
-    }
-
     public String buscarTitulo(String titulo) {
         String book = "";
         for (Edificio edificio : edificios) {
@@ -71,36 +67,24 @@ public class Sede {
 
     public int delete(String[] seccion, int opcion) {
         int i = 0;
-        // 0 = SEDE, 1= PISO, 2 = SECCION
-        if (opcion == 0) {
-            // if vacio
-            for (Edificio edificio : edificios) {
-                i = edificio.delete(seccion, opcion);
-                if (i == 1)
-                    return i;
-            }
-            return i;
-        }
+        // 1= PISO, 2 = SECCION
+        switch (opcion) {
+            case 1:
+                for (Edificio edificio : edificios) {
+                    if (edificio.getEdificio().equals(seccion[1])) {
+                        i = edificio.delete(seccion, opcion);
+                    }
 
-        if (opcion == 1) {
-            // if vacio
-            for (Edificio edificio : edificios) {
-                if (edificio.getEdificio().equals(seccion[1])) {
-                    i = edificio.delete(seccion, opcion);
                 }
+                return i;
+            case 2:
+                for (Edificio edificio : edificios) {
+                    if (edificio.getEdificio().equals(seccion[3])) {
+                        i = edificio.delete(seccion, opcion);
+                    }
 
-            }
-            return i;
-        }
-        if (opcion == 2) {
-            // if vacio
-            for (Edificio edificio : edificios) {
-                if (edificio.getEdificio().equals(seccion[3])) {
-                    i = edificio.delete(seccion, opcion);
                 }
-
-            }
-            return i;
+                return i;
         }
         return i;
     }

@@ -255,8 +255,8 @@ public class DisplayMenu {
               System.out.print("\033[H\033[2J");
               System.out.println(("\nIngrese la informacion del piso a eliminar en el siguiente formato: "));
               System.out.println("(Piso, edificio, sede)\n");
-              String line3 = input.nextLine();
-              String[] delFloor = Methods.splitLine(line3);
+              line = input.nextLine();
+              String[] delFloor = Methods.splitLine(line);
               int i = biblioteca.delete(delFloor, PISO);
               if (i == 1) {
                 System.out.println("\nAun existen libros en este piso, por favor eliminelos.");
