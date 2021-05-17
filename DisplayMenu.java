@@ -43,7 +43,7 @@ public class DisplayMenu {
         case 2: // Editar libro
           input.nextLine();
           System.out.print("\033[H\033[2J");
-          System.out.println("\nIngresar Libro a editar:");
+          System.out.println("\nIngresar titulo de libro a editar:");
           String titulo = input.nextLine();
           System.out.print("\033[H\033[2J");
           System.out.println("Eliga una de las siguientes opciones:\n");
