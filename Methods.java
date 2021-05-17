@@ -55,7 +55,7 @@ public class Methods {
                 if ((biblioteca.sedes.get(i).getEdificios().isEmpty() == true)
                         || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().isEmpty() == true)
                         || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks()
-                                .isEmpty() == true)) {
+                                .isEmpty() == true) || (biblioteca.sedes.get(i).getEdificios().get(0).getFloors().get(0).getRacks().get(0).getBooks().isEmpty() == true)) {
                     continue;
                 }
 
